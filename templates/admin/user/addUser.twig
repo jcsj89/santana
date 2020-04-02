@@ -1,0 +1,66 @@
+{% extends '/admin/base/base.twig' %}
+{% block content %}
+	<ol>
+		<li>Usuários/</li>
+		<li>Novo</li>
+	</ol>
+
+	<form action='/user/new' method='post'>
+		<div class="row align-items-center justify-content-center mb-2">
+			<div class="col-12 col-sm-2">
+				<label for="username">Usuário</label>
+			</div>
+			<div class="col-12 col-sm-5">
+				<input type="text" name="username" class="form-control" id="username" placeholder="Usuario">
+			</div>
+		</div>
+
+		<div class="row align-items-center justify-content-center mb-2">
+			<div class="col-12 col-sm-2">
+				<label for="first_name">Nome</label>
+			</div>
+			<div class="col-12 col-sm-5">
+				<input type="text" name="first_name" class="form-control" id="first_name" placeholder="Primeiro nome">
+			</div>
+		</div>
+
+		<div class="row align-items-center justify-content-center mb-2">
+			<div class="col-12 col-sm-2">
+				<label for="last_name">Sobrenome</label>
+			</div>
+			<div class="col-12 col-sm-5">
+				<input type="text" name="last_name" class="form-control" id="last_name" placeholder="Sobrenome">
+			</div>
+		</div>
+
+		<div class="row align-items-center justify-content-center mb-2">
+			<div class="col-12 col-sm-2">
+				<label for="email">Email</label>
+			</div>
+			<div class="col-12 col-sm-5">
+				<input type="email" name="email" class="form-control" id="email" placeholder="email@email.com">
+			</div>
+		</div>
+
+
+		<div class="row align-items-center justify-content-center mb-2">
+			<div class="col-12 col-sm-2">
+				<label for="password">Senha</label>
+			</div>
+			<div class="col-12 col-sm-5">
+				<input type="password" name="password" class="form-control" id="password" placeholder="******">
+			</div>
+		</div>
+
+		<div class="row align-items-center justify-content-center mb-2">
+			<div class="col-12 col-sm-7">
+				<button type="submit" class="btn btn-primary">Submit</button>
+			</div>			
+		</div>
+		
+		
+	</form>
+
+
+	{# END BLOCK CONTENT #}
+{% endblock %}

@@ -1,0 +1,120 @@
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;700&family=Lato:wght@400;700&family=Open+Sans&family=Roboto+Mono:wght@400;500;700&family=Roboto:wght@400;500;700&family=Ubuntu+Mono:wght@400;700&family=Ubuntu:wght@400;500;700&display=swap');
+
+/* 
+font-family: 'Roboto', sans-serif;
+font-family: 'Roboto Mono', monospace;
+font-family: 'Open Sans', sans-serif;
+font-family: 'Lato', sans-serif;
+font-family: 'Ubuntu', sans-serif;
+font-family: 'Ubuntu Mono', monospace;
+font-family: 'Inconsolata', monospace;
+*/
+
+a {
+	font-family: 'Roboto Mono', monospace;
+	font-size: 0.9em;
+	line-height: 1.7;
+	color: #666666;
+	margin: 0px;
+	transition: all 0.4s;
+	-webkit-transition: all 0.4s;
+ 	-o-transition: all 0.4s;
+  	-moz-transition: all 0.4s;
+}
+
+a:focus {
+	outline: none !important;
+}
+
+a:hover {
+	text-decoration: none;
+  	color: #57b846;
+}
+
+ul, li {
+	margin: 0px;
+	list-style-type: none;
+}
+
+
+
+.font-open-sans{	
+	font-family: 'Open Sans', sans-serif;
+	font-style: normal; 	 
+	font-weight: normal; 	
+}
+.font-lato{	
+	font-family: 'Lato', sans-serif;
+	font-style: normal; 	 
+	font-weight: normal; 	
+}
+.font-inconsolata{	
+	font-family: 'Inconsolata', monospace;
+	font-style: normal; 	 
+	font-weight: normal; 	
+}
+.font-droid{	
+	font-family: "Droid Sans Mono"; 	
+	font-style: normal; 
+	font-variant: normal; 
+	font-weight: 700; 	
+}
+.font-roboto{	
+	font-family: 'Roboto', sans-serif;
+	font-style: normal; 	 
+	font-weight: normal; 	
+}
+.font-roboto-mono{	
+	font-family: 'Roboto Mono', monospace;
+	font-style: normal; 	 
+	font-weight: normal; 	
+}
+.font-ubuntu{	
+	font-family: 'Ubuntu', sans-serif;
+	font-style: normal; 	 
+	font-weight: normal; 	
+}
+.font-ubuntu-mono{	
+	font-family: 'Ubuntu Mono', monospace;
+	font-style: normal; 	 
+	font-weight: normal; 	
+}
+
+
+
+
+/* FORMATAÇÃO DO FORMULARIO CONTATO */
+.bg-goldenrod{
+	background-color: #daa520;	
+}
+.bg-gray{
+	background-color: #f8f9fa;	
+}
+.border-goldenrod{
+	border: 1px solid #e6bc53;
+}
+.bg-btn-goldenrod{
+	background-color: #f1af09
+}
+.tel{	
+	font-family: 'Roboto', sans-serif;
+	font-style: normal; 	 
+	font-weight: 900;
+}
+
+.font-color-gray{
+	color: #6c757d;
+}
+.bg-gray{
+	background-color: #f8f9fa;
+}
+
+/* FORMATAÇÃO FOOTER */
+.copyright {
+	padding: 2px;
+	margin: 2px;
+	font-family: 'Open Sans', sans-serif;
+	font-style: normal; 	 
+	font-weight: 700;
+	font-size: 0.8em;
+}
