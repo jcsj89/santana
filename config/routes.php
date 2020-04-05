@@ -8,9 +8,7 @@ use Slim\Routing\RouteCollectorProxy;
 use App\Middleware\MiddlewareLogin;
 
 return function (App $app) {	
-	$app->get('/', \App\Action\HomeAction::class);
-	
-	
+	$app->get('/', \App\Action\HomeAction::class);	
 	
 	
 	$app->get('/login', \App\Action\Validation\LoginAction::class);
@@ -47,6 +45,6 @@ return function (App $app) {
 
 	$app->group('/testes', function (RouteCollectorProxy $group) {
 		$group->get('/billing', \App\Action\HomeAction::class);
-		$group->get('/users', \App\Action\User\UserCreateAction::class);
+		$group->get('/users', \App\Action\User\UserCreateAction::class);		
 	})->add(new MiddlewareLogin() );
 };

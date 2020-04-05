@@ -1,61 +1,16 @@
 {% extends 'base/base.twig' %}
 {% block content %}
-	{# FAIXA SUPERIOR - CONTATOS#}
-	<div class="row align-items-center justify-content-center text-center bg-gray">
-		<div class="col col-sm">
-			<span class="font-color-gray"><i class="fas fa-phone-volume text-success"></i>&nbsp;+55 (17) 3269-1200&nbsp;&nbsp;&nbsp;</span>
-			<span class="font-color-gray"><i class="fab fa-whatsapp text-success"></i>&nbsp;+55 (17) 99619-3941&nbsp;&nbsp;&nbsp;</span>
-			<span class="font-color-gray"><i class="fa fa-envelope text-success"></i>&nbsp;<a href="mailto: santanaquimica@terra.com.br">santanaquimica@terra.com.br&nbsp;&nbsp;</a></span>			
-		</div>
-	</div>
+<div class="container mt-2 mb-2">
 
-	{# FAIXA NAVBAR -- LOGOTIPO #}
-	<div class="row align-items-center justify-content-center text-center border-bottom mb-2">		
-		<div class="col-12 col-sm-8 ">
-			
-			<nav class="navbar navbar-expand-sm navbar-light">
-
-				<a class="navbar-brand" href="/">
-					<img src="/img/logo_santana_preto.png" class="" alt="">	
-				</a>
-				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Alterna navegação">
-					<span class="navbar-toggler-icon"></span>
-				</button>
-
-				<div class="collapse navbar-collapse" id="navbarNav">
-					<ul class="navbar-nav ml-auto">
-						<li class="nav-item">
-							<a class="nav-link text-success font-inconsolata" href="/"><i class="fa fa-home text-success"></i> Home</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link font-inconsolata disabled" href="/">Produtos</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link font-inconsolata disabled" href="/">Sobre</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link font-inconsolata disabled" href="/">Contato</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link text-info font-inconsolata" href="/login"><i class="fa fa-sign-in"></i> Login</a>
-						</li>
-					</ul>
-				</div>
-			</nav>
-
-
-		</div>
-	</div>
-	
 	{# --------------------------------------------------------
 		CONTEUDO DIVIDIDO POR DUAS COLUNAS
 		COLUNA ESQUERDA - DESENHO CARICATURA
 		COLUNA DIREITA - FORMULARIO CONTATO
 
 		--------------------------------------------------------- #}
-		<div class="row justify-content-center ">
+		<div class="row justify-content-center">
 			
-			<div class="col-12 col-sm col-lg text-center pl-0">	
+			<div class="col-12 col-sm col-lg text-center">	
 				<div class="alert alert-info"><h2>Site em desenvolvimento.</h2></div>
 				<div class="alert alert-warning" role="alert">
   					
@@ -72,11 +27,7 @@
 				#}
 			</div>
 	
-			<div class="col-sm-6 col-lg-5 col-xl-4 pr-0">
-	{# --------------------------------------------------------
-		    TELEFONES
-		    --------------------------------------------------------- #}
-
+			<div class="col-sm-6 col-lg-5 col-xl-4">
 
 	{# --------------------------------------------------------
 		    FORMULÁRIO DE CONTATO
@@ -144,5 +95,5 @@
 		</div>{# FIM COLUNA DIREITA #}
 
 	</div>
-
+</div>
 {% endblock %}

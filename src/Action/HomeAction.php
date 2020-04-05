@@ -30,15 +30,10 @@ final class HomeAction extends Action
   }
 
   public function action(ServerRequest $request, Response $response): Response 
-  {
-    $viewData = [
-      'now' => date('Y-m-d H:i:s'),      
-      'dir' => __DIR__       
-    ];
+  {    
     return $this->view->render(
       $response,
-      'home.twig',
-      $viewData
+      'home.twig'      
     );
   }
 

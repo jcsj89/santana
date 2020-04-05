@@ -4,9 +4,16 @@
 	{% include '/base/header.twig' %}
 </head>
 <body>
-	<div class="container">
-		{% block content %}{% endblock %}
-		{% include '/base/footer.twig'%}
+	<div class="container-fluid">
+		{% include '/base/nav.twig'%}
 	</div>
+	<hr/>
+	<div class="container-fluid">		
+		{% block content %}{% endblock %}
+	</div>
+	<hr/>
+	<div class="container-fluid">
+		{% include '/base/footer.twig'%}		
+	</div>	
 </body>
 </html>

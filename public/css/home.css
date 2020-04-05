@@ -9,7 +9,11 @@ font-family: 'Ubuntu', sans-serif;
 font-family: 'Ubuntu Mono', monospace;
 font-family: 'Inconsolata', monospace;
 */
-
+hr {
+	margin: 0;
+	padding: 0;
+	border-color: #666;
+} 
 a {
 	font-family: 'Roboto Mono', monospace;
 	font-size: 0.9em;
@@ -81,8 +85,11 @@ ul, li {
 }
 
 
-
-
+/* FORMATAÇÃO DA BARRA SUPERIOR */
+.span-nav-width{
+	min-width: 200px;	
+	display: inline-block;
+}
 /* FORMATAÇÃO DO FORMULARIO CONTATO */
 .bg-goldenrod{
 	background-color: #daa520;	
