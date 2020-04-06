@@ -23,17 +23,23 @@ final class HomeAction extends Action
 
   public function __invoke(ServerRequest $request, Response $response, $args = ['']): Response
   {               
-    return $this->view->render(
-      $response,
-      'home.twig'            
-    );
+    return $response->withRedirect('/site/home');    
   }
 
-  public function action(ServerRequest $request, Response $response): Response 
+  public function home(ServerRequest $request, Response $response): Response 
   {    
     return $this->view->render(
       $response,
       'home.twig'      
+    );
+  }
+
+  //Action page sobre
+  public function sobre(ServerRequest $request, Response $response): Response 
+  {    
+    return $this->view->render(
+      $response,
+      'sobre.twig'      
     );
   }
 

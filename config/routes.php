@@ -10,6 +10,12 @@ use App\Middleware\MiddlewareLogin;
 return function (App $app) {	
 	$app->get('/', \App\Action\HomeAction::class);	
 	
+	$app->group('/site', function (RouteCollectorProxy $group) {
+		$group->get('/home', \App\Action\HomeAction::class.':home');
+		$group->get('/produtos', \App\Action\HomeAction::class.':produtos');
+		$group->get('/sobre',\App\Action\HomeAction::class.':sobre');
+		$group->get('/contato', \App\Action\HomeAction::class.':contato');
+	});
 	
 	$app->get('/login', \App\Action\Validation\LoginAction::class);
 	
