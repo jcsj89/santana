@@ -125,3 +125,7 @@ ul, li {
 	font-weight: 700;
 	font-size: 0.8em;
 }
+.bg-image{
+	background-image: url("/img/body.jpg");
+  	background-repeat: repeat;
+}
