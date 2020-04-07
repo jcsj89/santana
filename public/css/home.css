@@ -125,7 +125,14 @@ ul, li {
 	font-weight: 700;
 	font-size: 0.8em;
 }
+
+
+/*pagina sobre*/
 .bg-image{
 	background-image: url("/img/body.jpg");
   	background-repeat: repeat;
 }
+.color-titles{
+	color: #db4437;
+}
+

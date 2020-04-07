@@ -1,0 +1,11 @@
+git clone git@github.com:jcsj89/QuimicaIpigua.git tmp && mv tmp/.git . && rm -fr tmp && git reset --hard
+
+https://www.andrebian.com/repositorio-git-em-pasta-existente/
+
+
+
+git reset –hard – Forçamos o reset do repositório. Com isso todos os índices serão lidos e criada toda a estrutura de sua aplicação dentro da pasta public_html. Neste momento além da pasta “.git/” existe toda a estrutura de pastas e arquivos de sua aplicação.
+
+É isso, pra muita gente isso pode ser muito simples de fazer, no entanto penso em programadores que estão iniciando no mundo do git. Isto geralmente é uma grande dificuldade, assim como foi pra mim, quando comecei a trabalhar com este sistema de versionamento. Sem contar que como já mencionado, em hospedagens antiquadas (infelizmente o que mais tem no Brasil) a versão do git é muito antiga e obriga a gente a rodar o comando ensinado aqui.
+
+Nas versões mais novas do git é possível clonar em uma pasta já existente.
