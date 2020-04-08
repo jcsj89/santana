@@ -6,6 +6,7 @@ use Psr\Http\Message\ServerRequestInterface as ServerRequest;
 use App\Action\Action;
 use Slim\Views\Twig;
 
+
 use App\Domain\Mail\Data\MailCreateData;
 use App\Domain\Mail\Service\SendMail;
 
@@ -48,23 +49,37 @@ final class HomeAction extends Action
   {
     $parsedBody = $request->getParsedBody();
     $viewData = [];
-    if ( !empty($parsedBody) && !empty($parsedBody['email']) && !empty($parsedBody['msg'])) 
-    {
-      
-      $mensagem = 'Nome: ' . $parsedBody['nome'] . '<br>' . 'Email: '. $parsedBody['email'] . '<br>' .
-      'Telefone: ' . $parsedBody['telefone'] . '<br>' . 'Mensagem : ' . $parsedBody['msg'];
+    
+    // Build POST request:
+    $recaptcha_url = 'https://www.google.com/recaptcha/api/siteverify';
+    $recaptcha_secret = '6Ler-OcUAAAAAJKsd0wqEQJknKJ_Ge1i_lQLgio1';
+    $recaptcha_response = $_POST['recaptcha_response'];
 
-      $email = new MailCreateData();
-      $email->setBody( $mensagem );
-      $email->setAltBody( $mensagem );    
+    // Make and decode POST request:
+    $recaptcha = file_get_contents($recaptcha_url . '?secret=' . $recaptcha_secret . '&response=' . $recaptcha_response);
+    $recaptcha = json_decode($recaptcha);
 
-      $this->sendMail->sendMail($email);
-      
-      $viewData = [
-      'send' => true           
-      ];
+    // Take action based on the score returned:
+    if ($recaptcha->score >= 0.5) {
+      if ( !empty($parsedBody) && !empty($parsedBody['email']) && !empty($parsedBody['msg'])) 
+      {
 
+        $mensagem = 'Nome: ' . $parsedBody['nome'] . '<br>' . 'Email: '. $parsedBody['email'] . '<br>' .
+        'Telefone: ' . $parsedBody['telefone'] . '<br>' . 'Mensagem : ' . $parsedBody['msg'];
+
+        $email = new MailCreateData();
+        $email->setBody( $mensagem );
+        $email->setAltBody( $mensagem );    
+
+        $this->sendMail->sendMail($email);
+
+        $viewData['send'] = true;   
+
+      }
+    } else {
+        $viewData['send'] = false;
     }
+    
     return $this->view->render(
       $response,
       'home.twig',

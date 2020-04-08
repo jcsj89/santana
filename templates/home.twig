@@ -1,6 +1,6 @@
 {% extends 'base/base.twig' %}
 {% block content %}
-<div class="container mt-2 mb-2">
+	<div class="container mt-2 mb-2">
 
 	{# --------------------------------------------------------
 		CONTEUDO DIVIDIDO POR DUAS COLUNAS
@@ -13,12 +13,12 @@
 			<div class="col-12 col-sm col-lg text-center">	
 				<div class="alert alert-info"><h2>Site em desenvolvimento.</h2></div>
 				<div class="alert alert-warning" role="alert">
-  					
-				<h3>Contato pelo formulário ao lado, email ou telefones.</h3>
-				<h4>Logo o site estará funcionando adequadamente...</h4>
+
+					<h3>Contato pelo formulário ao lado, email ou telefones.</h3>
+					<h4>Logo o site estará funcionando adequadamente...</h4>
 				</div>
 				
-				 
+
 				{#
 				<figure class="figure">
 					<img src="/img/2.jpg" class="figure-img img-fluid rounded" alt="A generic square placeholder image with rounded corners in a figure.">
@@ -26,7 +26,7 @@
 				</figure>
 				#}
 			</div>
-	
+
 			<div class="col-sm-6 col-lg-5 col-xl-4">
 
 	{# --------------------------------------------------------
@@ -56,14 +56,14 @@
 		    					<div class="input-group-prepend">
 		    						<div class="input-group-text"><i class="far fa-envelope text-info"></i></div>									
 		    					</div>
-		    					<input type="text" class="form-control" name="email" id="email" placeholder="santanaquimica@terra.com.br" aria-label="email" >
+		    					<input type="text" class="form-control" name="email" id="email" placeholder="Email" aria-label="email" >
 		    				</div>
 		    				{# INPUT TELEFONE #}
 		    				<div class="input-group mb-3">
 		    					<div class="input-group-prepend">
 		    						<div class="input-group-text"><i class="fab fa-whatsapp text-info"></i></div>									
 		    					</div>
-		    					<input type="tel" name="telefone" id="telefone" class="form-control" placeholder="(17) 32691200" aria-label="tel" >
+		    					<input type="tel" name="telefone" id="telefone" class="form-control" placeholder="Telefone" aria-label="tel" >
 		    				</div>
 		    				{# INPUT MENSAGEM #}
 		    				<p class="font-inconsolata">Em que podemos <span class="badge badge-pill badge-info"> ajudá-lo ? </span> </p>
@@ -71,8 +71,21 @@
 		    					<div class="input-group-prepend">
 		    						<div class="input-group-text"><i class="far fa-comment text-info"></i></div>									
 		    					</div>
-		    					<textarea class="form-control" name="msg" id="msg" rows="5" placeholder="Escreva aqui... e nos envie sua mensagem."></textarea>								
-		    				</div>
+		    					<textarea class="form-control" name="msg" id="msg" rows="5" placeholder="Mensagem"></textarea>								
+		    				</div> 		    				
+		    				{# LINK RECAPTCHA#}
+		    				<script src="https://www.google.com/recaptcha/api.js?render=6Ler-OcUAAAAAJ0kD3Ur9_UCOWYXV0w3HQUxniaw"></script>
+		    				<script>
+		    				grecaptcha.ready(function () {
+		    					grecaptcha.execute('6Ler-OcUAAAAAJ0kD3Ur9_UCOWYXV0w3HQUxniaw', { action: 'homepage' }).then(function (token) {
+		    						var recaptchaResponse = document.getElementById('recaptchaResponse');
+		    						recaptchaResponse.value = token;
+		    					});
+		    				});
+		    				</script>
+		    				<input type="hidden" name="recaptcha_response" id="recaptchaResponse">
+		    				{# FIM RECAPTCHA #}
+		    				
 
 		    				<div class="text-center">							
 		    					<button type="submit" class="btn text-white badge-success mb-2"><i class="fa fa-check"></i> Enviar</button>
@@ -80,10 +93,9 @@
 
 		    				{% if send == true %}
 		    					<div class="alert alert-success">
-		    						Mensagem enviada com sucesso.
+		    						Mensagem enviada com sucesso.<br>
 		    					</div>
-		    				{% endif %}
-
+		    				{% endif %}		    				
 		    			</div>
 		    		</div>
 		    		
