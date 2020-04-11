@@ -20,13 +20,11 @@ return [
     App::class => function (ContainerInterface $container) {
         AppFactory::setContainer($container);
 
-        $app = AppFactory::create();
-        
+        $app = AppFactory::create();        
 
         // Optional: Set the base path to run the app in a sub-directory
         // The public directory must not be part of the base path
         //$app->setBasePath('/QuimicaIpigua');
-
 
         return $app;
     },
@@ -49,8 +47,7 @@ return [
         $config = $container->get(Configuration::class);
 
         $path_templates = $config->getString('twig.path_templates');
-        $path_cache = $config->getString('twig.path_cache');
-        
+        $path_cache = $config->getString('twig.path_cache');        
 
         $loader = new FilesystemLoader(
             $path_templates
@@ -86,6 +83,5 @@ return [
 
     return $mail;
 },
-
 
 ];
