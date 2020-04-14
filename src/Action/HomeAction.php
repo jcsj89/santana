@@ -35,6 +35,15 @@ final class HomeAction extends Action
     );
   }
 
+  //Action page contato
+  public function contato(ServerRequest $request, Response $response): Response 
+  {    
+    return $this->view->render(
+      $response,
+      'contato.twig'      
+    );
+  }
+
   //Action page sobre
   public function sobre(ServerRequest $request, Response $response): Response 
   {    
@@ -43,7 +52,6 @@ final class HomeAction extends Action
       'sobre.twig'      
     );
   }
-
   
   public function mailer(ServerRequest $request, Response $response): Response 
   {

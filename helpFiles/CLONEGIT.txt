@@ -1,4 +1,4 @@
-git clone git@github.com:jcsj89/QuimicaIpigua.git tmp && mv tmp/.git . && rm -fr tmp && git reset --hard
+git clone git@github.com:jcsj89/santana.git tmp && mv tmp/.git . && rm -fr tmp && git reset --hard
 
 https://www.andrebian.com/repositorio-git-em-pasta-existente/
 
