@@ -132,7 +132,16 @@ ul, li {
 	background-image: url("/img/body.jpg");
   	background-repeat: repeat;
 }
-.color-titles{
+.color-red-titles{
 	color: #db4437;
+}
+.color-blue-titles{
+	color: #4285f4;
+}
+.color-yellow-titles{
+	color: #f4b400;
+}
+.color-green-titles{
+	color: #0f9d58;
 }
 
