@@ -90,7 +90,7 @@ final class HomeAction extends Action
     
     return $this->view->render(
       $response,
-      'home.twig',
+      'contato.twig',
       $viewData
     );
 

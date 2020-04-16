@@ -10,57 +10,45 @@
 						</div>
 					</div>
 					<div class="row">
-						<div class="col">
+						<div class="col border-bottom mb-3">
 							<p>Envie sua mensagem.</p>
 						</div>
 					</div>
 					<form action="/mail" method="POST">
 						<div class="row form-group">	
-							<label>Nome</label>	
-								<div class="col col-sm-9">
-									<input type="text" name="nome" class="form-control">
-								</div>							
+							<div class="col-12 col-sm-3">
+								<label for="nome" class="">Nome</label>
+							</div>								
+							<div class="col-12 col-sm-9">
+								<input type="text" name="nome" class="form-control" id="nome" placeholder="Nome" aria-label="nome">
+							</div>							
 						</div>
-					</form >
-					{# --------------------------------------------------------
-		    FORMULÁRIO DE CONTATO
-		    --------------------------------------------------------- #}
-		    
-		    <form action="/mail" method="POST">
-		    	{# INICIO CARD #}
-		    	<div class="card border rounded-0">
-		    		<div class="card-header p-0">
-		    			<div class="text-center py-2">
-		    				<h3 class="font-roboto-mono text-success">Contato</h3>	    				
-		    			</div>
-		    		</div>
-		    		<div class="card-body">
-		    			<div class="form-group">
-		    				
+						<div class="row form-group">	
+							<div class="col-12 col-sm-3">
+								<label for="email" class="">Email</label>
+							</div>								
+							<div class="col-12 col-sm-9">
+								<input type="text" name="email" class="form-control" id="email" placeholder="Email" aria-label="email">
+							</div>							
+						</div>
+						<div class="row form-group">	
+							<div class="col-12 col-sm-3">
+								<label for="telefone" class="">Telefone</label>
+							</div>								
+							<div class="col-12 col-sm-9">
+								<input type="tel" name="telefone" id="telefone" class="form-control" placeholder="Telefone" aria-label="tel" >
+							</div>							
+						</div>
+						<div class="row form-group">	
+							<div class="col-12 col-sm-3">
+								<label for="msg" class="">Mensagem</label>
+							</div>								
+							<div class="col-12 col-sm-9">
+								<textarea class="form-control" name="msg" id="msg" rows="5" placeholder="Mensagem"></textarea>
+							</div>							
+						</div>
 
-		    				{# INPUT EMAIL #}
-		    				<div class="input-group mb-3">
-		    					<div class="input-group-prepend">
-		    						<div class="input-group-text"><i class="far fa-envelope text-info"></i></div>									
-		    					</div>
-		    					<input type="text" class="form-control" name="email" id="email" placeholder="Email" aria-label="email" >
-		    				</div>
-		    				{# INPUT TELEFONE #}
-		    				<div class="input-group mb-3">
-		    					<div class="input-group-prepend">
-		    						<div class="input-group-text"><i class="fab fa-whatsapp text-info"></i></div>									
-		    					</div>
-		    					<input type="tel" name="telefone" id="telefone" class="form-control" placeholder="Telefone" aria-label="tel" >
-		    				</div>
-		    				{# INPUT MENSAGEM #}
-		    				<p class="font-inconsolata">Em que podemos <span class="badge badge-pill badge-info"> ajudá-lo ? </span> </p>
-		    				<div class="input-group mb-3">
-		    					<div class="input-group-prepend">
-		    						<div class="input-group-text"><i class="far fa-comment text-info"></i></div>									
-		    					</div>
-		    					<textarea class="form-control" name="msg" id="msg" rows="5" placeholder="Mensagem"></textarea>								
-		    				</div> 		    				
-		    				{# LINK RECAPTCHA#}
+						{# LINK RECAPTCHA#}
 		    				<script src="https://www.google.com/recaptcha/api.js?render=6Ler-OcUAAAAAJ0kD3Ur9_UCOWYXV0w3HQUxniaw"></script>
 		    				<script>
 		    				grecaptcha.ready(function () {
@@ -72,40 +60,44 @@
 		    				</script>
 		    				<input type="hidden" name="recaptcha_response" id="recaptchaResponse">
 		    				{# FIM RECAPTCHA #}
-		    				
-
-		    				<div class="text-center">							
+		    				<div class="col-12 text-right">							
 		    					<button type="submit" class="btn text-white badge-success mb-2"><i class="fa fa-check"></i> Enviar</button>
 		    				</div>
-
 		    				{% if send == true %}
 		    					<div class="alert alert-success">
 		    						Mensagem enviada com sucesso.<br>
 		    					</div>
-		    				{% endif %}		    				
-		    			</div>
-		    		</div>
-		    		
-		    	</div> 
-		    	{# FIM CARD #}
-		    	
-		    </form>
+		    				{% endif %}		
+					</form >	    			
+		    			
 		</div>
 		<div class="col-12 col-sm-5 border-left">
-			<div class="border-bottom mb-3">
-				<h3 class="color-blue-titles">Endereço</h3>
-				<span>Rua Carlos Pagianotto, 251</span>
+			<div class="border-green p-3">
 
-				<h3 class="color-blue-titles">Telefones</h3>
-				<span>(17) 3269-1200</span>
-				<span>(17) 3269-1247</span>
-				<span>(17) 99619-3941</span>
-
-				<h3 class="color-blue-titles">Email</h3>
-				<span>santanaquimica@terra.com.br</span>
+			<div class="row">
+				<div class="col-12">
+					<i class="fa fa-phone color-blue" aria-hidden="true"></i>&nbsp;&nbsp;
+					<span class="font-roboto-mono">(17) 3269-1200</span>
+					<span class="font-roboto-mono">&nbsp;|&nbsp;&nbsp;3269-1247</span><br>
+					<i class="fa fa-whatsapp color-green" aria-hidden="true"></i>&nbsp;&nbsp;
+					<span class="font-roboto-mono">(17) 99619-3941</span>
+					</div>
 			</div>
-			<div>
-				<h3 class="color-blue-titles">Localização</h3>
+			<div class="row">
+				<div class="col-12">
+					<i class="fa fa-envelope-o color-yellow" aria-hidden="true"></i>&nbsp;&nbsp;<span class="font-roboto-mono">santanaquimica@terra.com.br</span><br/>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-12">
+					<i class="fa fa-map-marker color-red" aria-hidden="true"></i>&nbsp;&nbsp;
+					<span class="font-roboto-mono">Rua Carlos Pagianotto, 251</span><br>
+					<span class="font-roboto-mono">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Ipiguá - São Paulo</span>
+				</div>
+			</div>
+			</div>
+			<div class="row">
+				<h5 class="p-3">Localização</h5>
 				<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3733.159057418887!2d-49.38938368561645!3d-20.663106966857818!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94bd00756b860dbf%3A0x2e6f8e2a95f93c31!2sSantana%20Qu%C3%ADmica!5e0!3m2!1spt-BR!2sbr!4v1586883637392!5m2!1spt-BR!2sbr" width="100%" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
 			</div>
 
