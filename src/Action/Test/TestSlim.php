@@ -17,7 +17,6 @@ final class TestSlim extends Action
 	public function __construct(Twig $twig)
 	{
 		$this->view = $twig;  
-
 	}
 
 	public function __invoke(ServerRequest $request, Response $response): Response
