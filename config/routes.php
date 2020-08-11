@@ -46,8 +46,7 @@ return function (App $app) {
 	$app->get('/teste', \App\Action\Test\TestSlim::class);
 	$app->get('/testeuser', \App\Action\Test\TestUser::class);
 
-	
-
+	$app->get('/testes/contador', \App\Action\Test\TestConectionAction::class);
 
 	$app->group('/testes', function (RouteCollectorProxy $group) {
 		$group->get('/billing', \App\Action\HomeAction::class);

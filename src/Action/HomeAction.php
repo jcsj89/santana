@@ -69,9 +69,9 @@ final class HomeAction extends Action
 
     // Take action based on the score returned:
     if ($recaptcha->score >= 0.5) {
-      if ( !empty($parsedBody) && !empty($parsedBody['email']) && !empty($parsedBody['msg'])) 
+      if ( !empty($parsedBody) && !empty( $parsedBody['msg'] ) ) 
       {
-
+        
         $mensagem = 'Nome: ' . $parsedBody['nome'] . '<br>' . 'Email: '. $parsedBody['email'] . '<br>' .
         'Telefone: ' . $parsedBody['telefone'] . '<br>' . 'Mensagem : ' . $parsedBody['msg'];
 
