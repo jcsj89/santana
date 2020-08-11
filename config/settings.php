@@ -41,7 +41,7 @@ $settings['db'] = [
 $settings['gmail'] = [
     'host' => 'smtp.gmail.com',
     'username' => 'jcsj2010@gmail.com',
-    'password' => 'fi@0323#',
+    'password' => 'fi#0323@',
     'port' => '587'
 ];
 
