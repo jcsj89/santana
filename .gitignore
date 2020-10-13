@@ -2,7 +2,11 @@ composer.phar
 /vendor/
 vendor/
 vendor
+<<<<<<< HEAD
 
+=======
+<<<<<<< HEAD
+>>>>>>> 0982aa2f4dd34b9c5eabf9b146cfaeceb85d6805
 error_log
 public/error_log
 *.log

@@ -31530,4 +31530,7 @@ Trace: #0 /home4/acrsys84/santanaquimica.com.br/vendor/slim/slim/Slim/Middleware
 #6 /home4/acrsys84/santanaquimica.com.br/vendor/slim/slim/Slim/App.php(195): Slim\App->handle(Object(Slim\Http\ServerRequest))
 #7 /home4/acrsys84/santanaquimica.com.br/public/index.php(3): Slim\App->run()
 #8 {main}
+<<<<<<< HEAD
+>>>>>>> 0982aa2f4dd34b9c5eabf9b146cfaeceb85d6805
+=======
 >>>>>>> 0982aa2f4dd34b9c5eabf9b146cfaeceb85d6805
