@@ -8,7 +8,6 @@ abstract class Action
 
     public function __construct(ContainerInterface $ci) {
         $this->container = $ci;
-    }
+    }    
     
-    //abstract public function __invoke(Request $request, Response $response, $args = []);
 }

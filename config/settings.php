@@ -17,10 +17,10 @@ $settings['public'] = $settings['root'] . '/public';
 
 $settings['db'] = [
     'driver' => 'mysql',
-    'host' => '10.14.78.199:3306',
-    //'host' => '192.168.0.200:3306',
+    //'host' => '10.14.78.199:3306',
+    'host' => '192.168.0.200:3306',
     'username' => 'jose',
-    'database' => 'site',
+    'database' => 'santana',
     'password' => '0323',
     'charset' => 'utf8mb4',
     'collation' => 'utf8mb4_unicode_ci',

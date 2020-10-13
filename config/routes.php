@@ -19,6 +19,8 @@ return function (App $app) {
 	
 	$app->get('/login', \App\Action\Validation\LoginAction::class);
 	
+
+	
 	/*
 	*	GRUPO DE ROTAS PARA USUARIOS
 	*/
