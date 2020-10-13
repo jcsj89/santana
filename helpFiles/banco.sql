@@ -1,7 +1,7 @@
 /*
   TABELA ENDEREÇO
 */
-CREATE TABLE site.endereco (
+CREATE TABLE santana.endereco (
   id_endereco INT(255) NOT NULL AUTO_INCREMENT,
   endereco VARCHAR(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   numero VARCHAR(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
@@ -20,7 +20,7 @@ COLLATE utf8mb4_general_ci;
 /*
   TABELA TAGS
 */
-CREATE TABLE site.tags (
+CREATE TABLE santana.tags (
   id_tag INT(255) NOT NULL AUTO_INCREMENT,
   tag VARCHAR(20) DEFAULT NULL,
   PRIMARY KEY (id_tag)
@@ -32,7 +32,7 @@ COLLATE utf8mb4_general_ci;
 /*
   TABELA EMAIL
 */
-CREATE TABLE site.email (
+CREATE TABLE santana.email (
   id_email INT(255) NOT NULL AUTO_INCREMENT,
   email VARCHAR(50) DEFAULT NULL,
   PRIMARY KEY (id_email)
@@ -44,7 +44,7 @@ COLLATE utf8mb4_general_ci;
 /*
   TABELA TELEFONE
 */
-CREATE TABLE site.telefone (
+CREATE TABLE santana.telefone (
   id_telefone INT(255) NOT NULL AUTO_INCREMENT,
   telefone VARCHAR(20) DEFAULT NULL,
   PRIMARY KEY (id_telefone)
@@ -56,7 +56,7 @@ COLLATE utf8mb4_general_ci;
 /*
   TABELA PESSOA
 */
-CREATE TABLE site.pessoa (
+CREATE TABLE santana.pessoa (
   id_pessoa INT(255) NOT NULL,
   nome VARCHAR(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   nome_abreviado VARCHAR(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
@@ -79,31 +79,31 @@ ENGINE = INNODB,
 CHARACTER SET utf8mb4,
 COLLATE utf8mb4_general_ci;
 
-ALTER TABLE site.pessoa 
+ALTER TABLE santana.pessoa 
   ADD UNIQUE INDEX UK_pessoa_id_pessoa(id_pessoa);
 
-ALTER TABLE site.pessoa 
+ALTER TABLE santana.pessoa 
   ADD CONSTRAINT FK_pessoa_email_id FOREIGN KEY (email_id)
-    REFERENCES site.email(id_email) ON DELETE CASCADE;
+    REFERENCES santana.email(id_email) ON DELETE CASCADE;
 
-ALTER TABLE site.pessoa 
+ALTER TABLE santana.pessoa 
   ADD CONSTRAINT FK_pessoa_endereco_id FOREIGN KEY (endereco_id)
-    REFERENCES site.endereco(id_endereco) ON DELETE CASCADE ON UPDATE CASCADE;
+    REFERENCES santana.endereco(id_endereco) ON DELETE CASCADE ON UPDATE CASCADE;
 
-ALTER TABLE site.pessoa 
+ALTER TABLE santana.pessoa 
   ADD CONSTRAINT FK_pessoa_tags_id FOREIGN KEY (tags_id)
-    REFERENCES site.tags(id_tag) ON DELETE CASCADE;
+    REFERENCES santana.tags(id_tag) ON DELETE CASCADE;
 
-ALTER TABLE site.pessoa 
+ALTER TABLE santana.pessoa 
   ADD CONSTRAINT FK_pessoa_telefone_id FOREIGN KEY (telefone_id)
-    REFERENCES site.telefone(id_telefone) ON DELETE CASCADE;
+    REFERENCES santana.telefone(id_telefone) ON DELETE CASCADE;
 
 
 
 /*
   TABELA ROLE
 */
-CREATE TABLE site.role (
+CREATE TABLE santana.role (
   id_role INT(11) NOT NULL AUTO_INCREMENT,
   role VARCHAR(20) DEFAULT NULL,
   PRIMARY KEY (id_role)
@@ -115,7 +115,7 @@ COLLATE utf8mb4_general_ci;
 /*
   TABELA USERS
 */
-CREATE TABLE site.users (
+CREATE TABLE santana.users (
   id_users INT(255) NOT NULL,
   username VARCHAR(20) NOT NULL,
   create_time DATETIME DEFAULT NULL,
@@ -130,13 +130,13 @@ AVG_ROW_LENGTH = 8192,
 CHARACTER SET utf8mb4,
 COLLATE utf8mb4_unicode_ci;
 
-ALTER TABLE site.users 
+ALTER TABLE santana.users 
   ADD CONSTRAINT FK_users_pessoa_id FOREIGN KEY (pessoa_id)
-    REFERENCES site.pessoa(id_pessoa) ON DELETE CASCADE;
+    REFERENCES santana.pessoa(id_pessoa) ON DELETE CASCADE;
 
-ALTER TABLE site.users 
+ALTER TABLE santana.users 
   ADD CONSTRAINT FK_users_role_id FOREIGN KEY (role_id)
-    REFERENCES site.role(id_role) ON DELETE NO ACTION;
+    REFERENCES santana.role(id_role) ON DELETE NO ACTION;
 
 
 
@@ -168,7 +168,7 @@ SET NAMES 'utf8';
 --
 -- Set default database
 --
-USE site;
+USE santana;
 
 --
 -- Drop table `users`
@@ -208,7 +208,7 @@ DROP TABLE IF EXISTS telefone;
 --
 -- Set default database
 --
-USE site;
+USE santana;
 
 --
 -- Create table `telefone`
@@ -374,12 +374,12 @@ ALTER TABLE users
 -- 
 -- Dumping data for table telefone
 --
--- Table site.telefone does not contain any data (it is empty)
+-- Table santana.telefone does not contain any data (it is empty)
 
 -- 
 -- Dumping data for table tags
 --
--- Table site.tags does not contain any data (it is empty)
+-- Table santana.tags does not contain any data (it is empty)
 
 -- 
 -- Dumping data for table endereco
@@ -390,7 +390,7 @@ INSERT INTO endereco VALUES
 -- 
 -- Dumping data for table email
 --
--- Table site.email does not contain any data (it is empty)
+-- Table santana.email does not contain any data (it is empty)
 
 -- 
 -- Dumping data for table role
@@ -403,7 +403,7 @@ INSERT INTO role VALUES
 -- 
 -- Dumping data for table pessoa
 --
--- Table site.pessoa does not contain any data (it is empty)
+-- Table santana.pessoa does not contain any data (it is empty)
 
 -- 
 -- Dumping data for table users
