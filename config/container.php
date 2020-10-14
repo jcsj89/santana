@@ -1,67 +1,81 @@
 <?php
 
 use Psr\Container\ContainerInterface;
-use Selective\Config\Configuration;
 use Slim\App;
 use Slim\Factory\AppFactory;
-//use PDO;
+use Slim\Middleware\ErrorMiddleware;
+use Selective\BasePath\BasePathMiddleware;
 use Slim\Views\Twig;
-use Twig\Loader\FilesystemLoader;
+use Slim\Views\TwigMiddleware;
+
 //PhpMailer
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
 
 return [
-    Configuration::class => function () {
-        return new Configuration(require __DIR__ . '/settings.php');
+    'settings' => function () {
+        return require __DIR__ . '/settings.php';
     },
 
     App::class => function (ContainerInterface $container) {
         AppFactory::setContainer($container);
 
-        $app = AppFactory::create();        
-
-        // Optional: Set the base path to run the app in a sub-directory
-        // The public directory must not be part of the base path
-        //$app->setBasePath('/QuimicaIpigua');
-
-        return $app;
+        return AppFactory::create();
     },
-    
+
+    ErrorMiddleware::class => function (ContainerInterface $container) {
+        $app = $container->get(App::class);
+        $settings = $container->get('settings')['error'];
+
+        return new ErrorMiddleware(
+            $app->getCallableResolver(),
+            $app->getResponseFactory(),
+            (bool)$settings['display_error_details'],
+            (bool)$settings['log_errors'],
+            (bool)$settings['log_error_details']
+        );
+    },
+
+    BasePathMiddleware::class => function (ContainerInterface $container) {
+        return new BasePathMiddleware($container->get(App::class));
+    },
+
     PDO::class => function (ContainerInterface $container) {
-        $config = $container->get(Configuration::class);
+    $settings = $container->get('settings')['db'];
 
-        $host = $config->getString('db.host');
-        $dbname =  $config->getString('db.database');
-        $username = $config->getString('db.username');
-        $password = $config->getString('db.password');
-        $charset = $config->getString('db.charset');
-        $flags = $config->getArray('db.flags');
-        $dsn = "mysql:host=$host;dbname=$dbname;charset=$charset";
+    $host = $settings['host'];
+    $dbname = $settings['database'];
+    $username = $settings['username'];
+    $password = $settings['password'];
+    $charset = $settings['charset'];
+    $flags = $settings['flags'];
+    $dsn = "mysql:host=$host;dbname=$dbname;charset=$charset";
 
-        return new PDO($dsn, $username, $password, $flags);
+    return new PDO($dsn, $username, $password, $flags);
     },
 
+    // Twig templates
     Twig::class => function (ContainerInterface $container) {
-        $config = $container->get(Configuration::class);
+        $settings = $container->get('settings');
+        $twigSettings = $settings['twig'];
 
-        $path_templates = $config->getString('twig.path_templates');
-        $path_cache = $config->getString('twig.path_cache');        
+        $options = $twigSettings['options'];
+        $options['cache'] = $options['cache_enabled'] ? $options['cache_path'] : false;
 
-        $loader = new FilesystemLoader(
-            $path_templates
+        $twig = Twig::create($twigSettings['paths'], $options);
+
+        // Add extension here
+        // ...
+        
+        return $twig;
+    },
+
+    TwigMiddleware::class => function (ContainerInterface $container) {
+        return TwigMiddleware::createFromContainer(
+            $container->get(App::class),
+            Twig::class
         );
-        $options = [
-          //  'cache' => $path_cache
-        ];
-
-        $view = new Twig(
-            $loader,
-            $options
-        );
-
-        return $view;
     },
 
     PHPMailer::class => function (ContainerInterface $container)
@@ -82,6 +96,5 @@ return [
     $mail->Port       = $config->getString('gmail.port');   // TCP port to connect to, use 465 for `PHPMailer::ENCRYPTION_SMTPS` above
 
     return $mail;
-},
-
+    },
 ];

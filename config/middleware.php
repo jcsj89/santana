@@ -1,23 +1,22 @@
 <?php
 
-use Selective\Config\Configuration;
 use Slim\App;
+use Slim\Middleware\ErrorMiddleware;
+use Selective\BasePath\BasePathMiddleware;
+use Slim\Views\TwigMiddleware;
+
 
 return function (App $app) {
     // Parse json, form data and xml
     $app->addBodyParsingMiddleware();
 
-    // Add routing middleware
-    $app->addRoutingMiddleware();
+    $app->add(TwigMiddleware::class);
 
-    $container = $app->getContainer();
-    
-    // Add error handler middleware
-    $settings = $container->get(Configuration::class)->getArray('error_handler_middleware');
-    $displayErrorDetails = (bool)$settings['display_error_details'];
-    $logErrors = (bool)$settings['log_errors'];
-    $logErrorDetails = (bool)$settings['log_error_details'];
+    // Add the Slim built-in routing middleware
+    $app->addRoutingMiddleware();    
 
-    $app->addErrorMiddleware($displayErrorDetails, $logErrors, $logErrorDetails);
+    $app->add(BasePathMiddleware::class);
+
+    // Catch exceptions and errors
+    $app->add(ErrorMiddleware::class);
 };
-

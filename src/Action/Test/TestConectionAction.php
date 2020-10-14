@@ -2,8 +2,8 @@
 
 namespace App\Action\Test;
 
-use Slim\Http\Response;
-use Slim\Http\ServerRequest;
+use Psr\Http\Message\ResponseInterface as Response;
+use Psr\Http\Message\ServerRequestInterface as ServerRequest;
 use App\Test\ConectionTest;
 
 final class TestConectionAction

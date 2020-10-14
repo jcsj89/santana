@@ -20,12 +20,12 @@ final class UserSelectAction
         $this->view = $twig;
     }
 
-    public function __invoke(ServerRequest $request, Response $response): Response
+    public function __invoke(ServerRequestInterface $request, ResponseInterface $response): ResponseInterface
     {
 
     }
 
-    public function selectAllUsers(ServerRequest $request, Response $response): Response
+    public function selectAllUsers(ServerRequestInterface $request, ResponseInterface $response): ResponseInterface
     {
         // Invoke the Domain with inputs and retain the result
         $users = $this->userSelect->selectAllUsers();

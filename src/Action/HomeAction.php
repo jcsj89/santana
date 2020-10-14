@@ -1,16 +1,14 @@
 <?php
 namespace App\Action;
 
-use Psr\Http\Message\ResponseInterface as Response;
-use Psr\Http\Message\ServerRequestInterface as ServerRequest;
-use App\Action\Action;
+use Psr\Http\Message\ResponseInterface;
+use Psr\Http\Message\ServerRequestInterface;
 use Slim\Views\Twig;
-
 
 use App\Domain\Mail\Data\MailCreateData;
 use App\Domain\Mail\Service\SendMail;
 
-final class HomeAction extends Action
+final class HomeAction 
 {
 	
 	private $view; 
@@ -22,38 +20,29 @@ final class HomeAction extends Action
     $this->sendMail = $sendMail;  
   }
 
-  public function __invoke(ServerRequest $request, Response $response, $args = ['']): Response
+  public function __invoke( ServerRequestInterface $request, ResponseInterface $response ): ResponseInterface
   {               
-    return $response->withRedirect('/site/home');    
+    return $response->withHeader('Location', '/site/home')->withStatus(302);     
   }
 
-  public function home(ServerRequest $request, Response $response): Response 
+  public function home(ServerRequestInterface $request, ResponseInterface $response): ResponseInterface 
   {    
-    return $this->view->render(
-      $response,
-      'home.twig'      
-    );
+    return $this->view->render($response,'home.twig');
   }
 
   //Action page contato
-  public function contato(ServerRequest $request, Response $response): Response 
+  public function contato(ServerRequestInterface $request, ResponseInterface $response): ResponseInterface 
   {    
-    return $this->view->render(
-      $response,
-      'contato.twig'      
-    );
+    return $this->view->render($response,'contato.twig');
   }
 
   //Action page sobre
-  public function sobre(ServerRequest $request, Response $response): Response 
+  public function sobre(ServerRequestInterface $request, ResponseInterface $response): ResponseInterface
   {    
-    return $this->view->render(
-      $response,
-      'sobre.twig'      
-    );
+    return $this->view->render($response,'sobre.twig');
   }
   
-  public function mailer(ServerRequest $request, Response $response): Response 
+  public function mailer( ServerRequestInterface $request, ResponseInterface $response): ResponseInterface 
   {
     $parsedBody = $request->getParsedBody();
     $viewData = [];
@@ -88,15 +77,7 @@ final class HomeAction extends Action
         $viewData['send'] = false;
     }
     
-    return $this->view->render(
-      $response,
-      'contato.twig',
-      $viewData
-    );
-
-    //return $response->withRedirect('/');    
-    //return $response->withJson($viewData)->withStatus(201);
-    //return $this->container->app->response->withRedirect( $this->router->pathFor('/', [], $viewData   ));
+    return $this->view->render($response,'contato.twig',$viewData);   
 
   }
 

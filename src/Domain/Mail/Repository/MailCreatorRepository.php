@@ -1,5 +1,6 @@
-<?php 
+<?php
 namespace App\Domain\Mail\Repository;
+
 use PHPMailer\PHPMailer\PHPMailer;
 use App\Domain\Mail\Data\MailCreateData;
 /**
@@ -17,12 +18,12 @@ class MailCreatorRepository
      *
      * @param PDO $connection The database connection
      */
-    public function __construct(PHPMailer $mail)
+    public function __construct( PHPMailer $mail )
     {
         $this->mail = $mail;        
     }
 
-    public function sendMail(MailCreateData $mailData):bool
+    public function sendMail( MailCreateData $mailData):bool
     {
         try {                    
 
@@ -46,9 +47,6 @@ class MailCreatorRepository
         } catch (Exception $e) {
             echo "erro ao enviar email";
         }
-
     }
-
-
 }
 ?>

@@ -1,9 +1,8 @@
 <?php
 
+use Psr\Http\Message\ResponseInterface;
+use Psr\Http\Message\ServerRequestInterface;
 use Slim\App;
-use Slim\Http\Response;
-use Slim\Http\ServerRequest;
-use Slim\Exception\NotFoundException;
 use Slim\Routing\RouteCollectorProxy;
 use App\Middleware\MiddlewareLogin;
 

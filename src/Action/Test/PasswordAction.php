@@ -3,11 +3,11 @@ namespace App\Action\Test;
 
 use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as ServerRequest;
-use App\Action\Action;
+
 use Slim\Views\Twig;
 use App\Password\Bcrypt;
 
-class PasswordAction extends Action
+class PasswordAction
 {
 	private $view; 
 

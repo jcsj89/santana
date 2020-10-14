@@ -3,7 +3,7 @@ namespace App\Action\Test;
 
 use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as ServerRequest;
-use App\Action\Action;
+
 use Slim\Views\Twig;
 
 use App\Domain\Pessoa\Data\PessoaCreateData;
@@ -14,7 +14,7 @@ use App\Domain\Pessoa\Data\TelefoneCreateData;
 
 use App\Domain\User\Data\UserCreateData;
 
-class TestUser extends Action
+class TestUser
 {
 	private $view; 
 

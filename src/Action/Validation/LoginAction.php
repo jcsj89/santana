@@ -1,12 +1,12 @@
 <?php
 namespace App\Action\Validation;
 
-use Psr\Http\Message\ResponseInterface as Response;
-use Psr\Http\Message\ServerRequestInterface as ServerRequest;
+use Psr\Http\Message\ResponseInterface;
+use Psr\Http\Message\ServerRequestInterface;
 use App\Action\Action;
 use Slim\Views\Twig;
 
-final class LoginAction extends Action
+final class LoginAction 
 {
 	
 	private $view; 
@@ -18,12 +18,9 @@ final class LoginAction extends Action
   }
 
 
-  public function __invoke(ServerRequest $request, Response $response, $args = ['']): Response
+  public function __invoke(ServerRequestInterface $request, ResponseInterface $response): ResponseInterface
   {               
-    return $this->view->render(
-      $response,
-      '/admin/login/login.twig'            
-    );
+    return $this->view->render($response,'/admin/login/login.twig');
   }    
 
 }//class

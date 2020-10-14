@@ -1,12 +1,12 @@
 <?php
 namespace App\Action;
 
-use Psr\Http\Message\ResponseInterface as Response;
-use Psr\Http\Message\ServerRequestInterface as ServerRequest;
+use Psr\Http\Message\ResponseInterface;
+use Psr\Http\Message\ServerRequestInterface;
 use App\Action\Action;
 use Slim\Views\Twig;
 
-final class LoginAction extends Action
+final class LoginAction
 {
 	
 	private $view;   
@@ -16,25 +16,18 @@ final class LoginAction extends Action
     $this->view = $twig;      
   }
 
-  public function __invoke(ServerRequest $request, Response $response): Response
+  public function __invoke(ServerRequestInterface $request, ResponseInterface $response): ResponseInterface
   {               
-    return $this->view->render(
-      $response,
-      '/admin/login/login.twig'            
-    );
+    return $this->view->render($response,'/admin/login/login.twig');
   }
 
-  public function action(ServerRequest $request, Response $response): Response 
+  public function action(ServerRequestInterface $request, ResponseInterface $response): ResponseInterface
   {
     $viewData = [
       'now' => date('Y-m-d H:i:s'),      
       'dir' => __DIR__       
     ];
-    return $this->view->render(
-      $response,
-      'home.twig',
-      $viewData
-    );
+    return $this->view->render($response,'home.twig',$viewData);
   }
 
 }//class

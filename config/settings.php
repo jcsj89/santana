@@ -1,6 +1,6 @@
 <?php
 
-// Error reporting
+// Error reporting for production
 error_reporting(1);
 ini_set('display_errors', '1');
 
@@ -12,18 +12,33 @@ $settings = [];
 
 // Path settings
 $settings['root'] = dirname(__DIR__);
-$settings['templates'] = $settings['root'] . '/templates';
+$settings['temp'] = $settings['root'] . '/tmp';
 $settings['public'] = $settings['root'] . '/public';
 
+// Error Handling Middleware settings
+$settings['error'] = [
+
+    // Should be set to false in production
+    'display_error_details' => true,
+
+    // Parameter is passed to the default ErrorHandler
+    // View in rendered output by enabling the "displayErrorDetails" setting.
+    // For the console and unit tests we also disable it
+    'log_errors' => true,
+
+    // Display error details in error log
+    'log_error_details' => true,
+];
+
+// Database settings
 $settings['db'] = [
     'driver' => 'mysql',
-    //'host' => '10.14.78.199:3306',
     'host' => '192.168.0.200:3306',
     'username' => 'jose',
     'database' => 'santana',
     'password' => '0323',
     'charset' => 'utf8mb4',
-    'collation' => 'utf8mb4_unicode_ci',
+    'collation' => 'utf8mb4_unicode_ci',    
     'flags' => [
         // Turn off persistent connections
         PDO::ATTR_PERSISTENT => false,
@@ -38,35 +53,26 @@ $settings['db'] = [
     ],
 ];
 
+// Twig settings
+$settings['twig'] = [
+    // Template paths
+    'paths' => [
+        __DIR__ . '/../templates',
+    ],
+    // Twig environment options
+    'options' => [
+        // Should be set to true in production
+        'cache_enabled' => false,
+        'cache_path' => __DIR__ . '/../tmp/twig',
+    ],
+
+];
+
 $settings['gmail'] = [
     'host' => 'smtp.gmail.com',
     'username' => 'jcsj2010@gmail.com',
     'password' => 'fi#0323@',
     'port' => '587'
 ];
-
-
-// Error Handling Middleware settings
-$settings['error_handler_middleware'] = [
-
-    // Should be set to false in production
-    'display_error_details' => true,
-
-    // Parameter is passed to the default ErrorHandler
-    // View in rendered output by enabling the "displayErrorDetails" setting.
-    // For the console and unit tests we also disable it
-    'log_errors' => true,
-
-    // Display error details in error log
-    'log_error_details' => true,
-];
-
-$settings['twig'] = [
-
-    'path_templates' => $settings['templates'],
-    'path_cache' => false
-];
-
-
 
 return $settings;

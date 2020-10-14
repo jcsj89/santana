@@ -4,12 +4,9 @@ namespace App\Action\User;
 
 use App\Domain\User\Data\UserCreateData;
 use App\Domain\User\Service\UserCreator;
-use Psr\Http\Message\ResponseInterface as Response;
-use Psr\Http\Message\ServerRequestInterface as ServerRequest;
+use Psr\Http\Message\ResponseInterface;
+use Psr\Http\Message\ServerRequestInterface;
 use Slim\Views\Twig;
-//use Slim\Http\Response;
-//use Slim\Http\ServerRequest;
-
 
 final class UserCreateAction 
 {
@@ -22,7 +19,7 @@ final class UserCreateAction
         $this->view = $twig; 
     }
 
-    public function __invoke(ServerRequest $request, Response $response): Response
+    public function __invoke(ServerRequestInterface $request, ResponseInterface $response): ResponseInterface
     {
         return $this->view->render(
           $response,
@@ -30,7 +27,7 @@ final class UserCreateAction
         );
     }
 
-    public function newUser(ServerRequest $request, Response $response): Response
+    public function newUser(ServerRequestInterface $request, ResponseInterface $response): ResponseInterface
     {
         // Collect input from the HTTP request
         $data = (array)$request->getParsedBody();
