@@ -1,4 +1,5 @@
 <?php 
+
 namespace App\Domain\Mail\Data;
 
 final class MailCreateData

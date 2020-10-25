@@ -80,7 +80,7 @@ return [
 
     PHPMailer::class => function (ContainerInterface $container)
     {
-        $config = $container->get(Configuration::class);
+        $config = $container->get( Configuration::class );
 
         // Instantiation and passing `true` enables exceptions
         $mail = new PHPMailer(true);

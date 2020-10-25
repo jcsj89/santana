@@ -4,7 +4,7 @@ namespace App\Action;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 use Slim\Views\Twig;
-
+use App\Domain\Mail\Repository\MailCreatorRepository;
 use App\Domain\Mail\Data\MailCreateData;
 use App\Domain\Mail\Service\SendMail;
 
@@ -25,23 +25,25 @@ final class HomeAction
     return $response->withHeader('Location', '/site/home')->withStatus(302);     
   }
 
+  // PAGINA HOME
   public function home(ServerRequestInterface $request, ResponseInterface $response): ResponseInterface 
   {    
     return $this->view->render($response,'home.twig');
   }
 
-  //Action page contato
+  // PAGINA CONTATO
   public function contato(ServerRequestInterface $request, ResponseInterface $response): ResponseInterface 
   {    
     return $this->view->render($response,'contato.twig');
   }
 
-  //Action page sobre
+  // PAGINA SOBRE
   public function sobre(ServerRequestInterface $request, ResponseInterface $response): ResponseInterface
   {    
     return $this->view->render($response,'sobre.twig');
   }
   
+
   public function mailer( ServerRequestInterface $request, ResponseInterface $response): ResponseInterface 
   {
     $parsedBody = $request->getParsedBody();
@@ -58,6 +60,7 @@ final class HomeAction
 
     // Take action based on the score returned:
     if ($recaptcha->score >= 0.5) {
+
       if ( !empty($parsedBody) && !empty( $parsedBody['msg'] ) ) 
       {
         

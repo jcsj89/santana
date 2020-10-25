@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Domain\Mail\Repository;
 
 use PHPMailer\PHPMailer\PHPMailer;
@@ -23,7 +24,7 @@ class MailCreatorRepository
         $this->mail = $mail;        
     }
 
-    public function sendMail( MailCreateData $mailData):bool
+    public function sendMail( MailCreateData $mailData ):bool
     {
         try {                    
 
@@ -49,4 +50,5 @@ class MailCreatorRepository
         }
     }
 }
+
 ?>
