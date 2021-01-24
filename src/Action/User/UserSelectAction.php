@@ -4,10 +4,9 @@ namespace App\Action\User;
 
 use App\Domain\User\Data\UserCreateData;
 use App\Domain\User\Service\UserSelect;
-use Psr\Http\Message\ResponseInterface as Response;
-use Psr\Http\Message\ServerRequestInterface as ServerRequest;
-//use Slim\Http\Response;
-//use Slim\Http\ServerRequest;
+use Psr\Http\Message\ResponseInterface;
+use Psr\Http\Message\ServerRequestInterface;
+
 use Slim\Views\Twig;
 
 final class UserSelectAction

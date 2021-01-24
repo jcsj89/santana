@@ -24,12 +24,22 @@ class PasswordAction
 		$hash = Bcrypt::hash($senha);   	
 		
 
+		
+
 		if (Bcrypt::check($hash, $hash)) {
+
 			$result = ['user'=> $hash];
-			return $response->withJson($result)->withStatus(201);
+			$json = json_encode($result);
+
+			$response->getBody()->write($json);
+			return $response->withHeader('Content-Type', 'application/json');
+			
+			
 		} else {
 			$result = ['user'=> 'diferente'];
-			return $response->withJson($result)->withStatus(201);
+			$json = json_encode($result);
+			$response->getBody()->write($json);
+			return $response->withHeader('Content-Type', 'application/json');
 		}
 
 		

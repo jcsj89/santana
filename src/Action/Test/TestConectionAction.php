@@ -4,16 +4,21 @@ namespace App\Action\Test;
 
 use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as ServerRequest;
-use App\Test\ConectionTest;
+use App\Domain\Mail\mail;
+
 
 final class TestConectionAction
 {
-    public function __invoke(ServerRequest $request, Response $response): Response
-    {
-    	$conn = new ConectionTest();
-    	$message = $conn->testaConexao();
+	private $mail;
+	function __construct(mail $mail)
+	{
+		$this->mail = $mail;
+	}
 
-        $response->getBody()->write($message);        
+    public function __invoke(ServerRequest $request, Response $response): Response
+    {   
+    	$this->mail->send();
+        $response->getBody()->write('teste');        
         return $response;
     }
 
