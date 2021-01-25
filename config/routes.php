@@ -6,7 +6,8 @@ use Slim\App;
 use Slim\Routing\RouteCollectorProxy;
 use App\Middleware\MiddlewareLogin;
 
-return function (App $app) {	
+return function (App $app) {
+
 	$app->get('/', \App\Action\HomeAction::class);	
 	
 	$app->group('/site', function (RouteCollectorProxy $group) {
@@ -16,8 +17,7 @@ return function (App $app) {
 		$group->get('/contato', \App\Action\HomeAction::class.':contato');
 	});
 	
-	$app->get('/login', \App\Action\Validation\LoginAction::class);
-	
+	$app->get('/login', \App\Action\Validation\LoginAction::class);	
 
 	
 	/*
@@ -30,10 +30,7 @@ return function (App $app) {
 		$group->get('/update', \App\Action\User\UserUpdateAction::class);
 	});
 
-
 	$app->get('/password',\App\Action\Test\PasswordAction::class );
-
-
 
 	/*
 	// rota para envio do formulario de contato por email
@@ -52,5 +49,5 @@ return function (App $app) {
 	$app->group('/testes', function (RouteCollectorProxy $group) {
 		$group->get('/billing', \App\Action\HomeAction::class);
 		$group->get('/users', \App\Action\User\UserCreateAction::class);		
-	})->add(new MiddlewareLogin() );
+	})->add( new MiddlewareLogin() );
 };
