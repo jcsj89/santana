@@ -27,8 +27,8 @@ final class TestConectionAction
         $this->data->setFrom('jcsj2010@gmail.com');
         $this->data->setBody('array com copia');
 
-        $this->mailer = new SendMail($this->data);
-        $this->mailer->send( $this->data );
+        $this->mailer = new SendMail( $this->data );
+        $this->mailer->send();
 
         $response->getBody()->write('teste ok');        
         return $response;

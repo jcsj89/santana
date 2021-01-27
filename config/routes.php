@@ -36,6 +36,7 @@ return function (App $app) {
 	// rota para envio do formulario de contato por email
 	*/    
 	$app->get('/mail', \App\Action\Test\TestConectionAction::class);
+	$app->post('/mail', \App\Action\MailAction::class.':mail');
 
 
 

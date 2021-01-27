@@ -45,7 +45,7 @@ class SwiftMailerFacade
  		$this->message->setTo( $this->mailData->getTo() );
 
   		// Give it a body
-  		$this->message->setBody( $this->mailData->getBody() );
+  		$this->message->setBody( $this->mailData->getBody(), 'text/html' );
 
   		// And optionally an alternative body
   		//$this->message->addPart('<h1><q>Here is the message itself</q></h1>', 'text/html');
@@ -58,7 +58,7 @@ class SwiftMailerFacade
 
     public function send()
     {    	
-    	$this->mail->send($this->message);
+    	$this->mail->send( $this->message );
     }
 
 }?>

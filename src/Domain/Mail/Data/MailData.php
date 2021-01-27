@@ -14,7 +14,7 @@ class MailData
 
     function __construct()
     {        
-        $this->subject = null;
+        $this->subject = 'Site Santana Quimica';
         $this->to = ['santanaquimica@terra.com.br', 'jcsj2010@gmail.com'];
         $this->from = 'jcsj2010@gmail.com';
         $this->body = null;
