@@ -7,11 +7,8 @@ use Slim\Middleware\ErrorMiddleware;
 use Selective\BasePath\BasePathMiddleware;
 use Slim\Views\Twig;
 use Slim\Views\TwigMiddleware;
+use App\Factory\LoggerFactory; 
 
-//PhpMailer
-use PHPMailer\PHPMailer\PHPMailer;
-use PHPMailer\PHPMailer\SMTP;
-use PHPMailer\PHPMailer\Exception;
 
 return [
 
@@ -79,23 +76,7 @@ return [
         );
     },
 
-    PHPMailer::class => function ( ContainerInterface $container )
-    {
-        $config = $container->get( Configuration::class );
-
-        // Instantiation and passing `true` enables exceptions
-        $mail = new PHPMailer(true);
-
-        //Server settings
-        //$mail->SMTPDebug = SMTP::DEBUG_SERVER;    // Enable verbose debug output
-        $mail->isSMTP();    // Send using SMTP
-        $mail->Host       = $config->getString('gmail.host');   // Set the SMTP server to send through
-        $mail->SMTPAuth   = true;   // Enable SMTP authentication
-        $mail->Username   = $config->getString('gmail.username');   // SMTP username
-        $mail->Password   = $config->getString('gmail.password');   // SMTP password
-        $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS; // Enable TLS encryption; `PHPMailer::ENCRYPTION_SMTPS` encouraged
-        $mail->Port       = $config->getString('gmail.port');   // TCP port to connect to, use 465 for `PHPMailer::ENCRYPTION_SMTPS` above
-
-        return $mail;
+    LoggerFactory::class => function (ContainerInterface $container) {
+        return new LoggerFactory($container->get('settings')['logger']);
     },
 ];

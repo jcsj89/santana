@@ -15,6 +15,7 @@ return function (App $app) {
 		$group->get('/produtos', \App\Action\HomeAction::class.':produtos');
 		$group->get('/sobre',\App\Action\HomeAction::class.':sobre');
 		$group->get('/contato', \App\Action\HomeAction::class.':contato');
+		$group->post('/contato', \App\Action\MailAction::class.':contato');
 	});
 	
 	$app->get('/login', \App\Action\Validation\LoginAction::class);	
@@ -36,7 +37,7 @@ return function (App $app) {
 	// rota para envio do formulario de contato por email
 	*/    
 	$app->get('/mail', \App\Action\Test\TestConectionAction::class);
-	$app->post('/mail', \App\Action\MailAction::class.':mail');
+	
 
 
 

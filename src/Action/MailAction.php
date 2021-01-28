@@ -13,11 +13,12 @@ final class MailAction
 	
 	private $view;	
 	private $dataMail;  
-
-	public function __construct( Twig $twig, MailData $dataMail )
+	private $mailer;
+	public function __construct( Twig $twig, MailData $dataMail, SendMail $mailer )
 	{
 		$this->view = $twig; 
-		$this->dataMail = $dataMail;   
+		$this->dataMail = $dataMail; 
+		$this->mailer = $mailer;  
 	}
 
 
@@ -26,7 +27,8 @@ final class MailAction
 		return $response->withHeader('Location', '/site/home')->withStatus(302);    
 	}  
 
-	public function mail( ServerRequestInterface $request, ResponseInterface $response ): ResponseInterface 
+	//envio de email pelo form de contato do site
+	public function contato( ServerRequestInterface $request, ResponseInterface $response ): ResponseInterface 
 	{    
 		$parsedBody = $request->getParsedBody();
 		$viewData = [];
@@ -41,6 +43,7 @@ final class MailAction
 		$recaptcha = json_decode($recaptcha);
 
     // Take action based on the score returned:
+		//em produção colocar esta linha de baixo no if abaixo como condição
 		//$recaptcha->score >= 0.5
 		if (true) {
 
@@ -50,10 +53,15 @@ final class MailAction
 				$mensagem = 'Nome: ' . $parsedBody['nome'] . '<br>' . 'Email: '. $parsedBody['email'] . '<br>' .
 				'Telefone: ' . $parsedBody['telefone'] . '<br>' . 'Mensagem : ' . $parsedBody['msg'];
 
+				//Seta a mensagem completa do email
+				//a classe Domain\Mail\Data\MailData
 				$this->dataMail->setBody( $mensagem );          
 
-				$mailer = new SendMail( $this->dataMail );
-				$mailer->send();
+				//Chama o serviço de envio de email (SendMail)
+				//seta os dados do email, cria log de envio e envia
+				$this->mailer->setData($this->dataMail);
+				$this->mailer->setLog('EMAIL ENVIADO FORM CONTATO SITE - OK');
+				$this->mailer->send();
 
 				$viewData['send'] = true;   
 

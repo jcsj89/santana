@@ -68,11 +68,13 @@ $settings['twig'] = [
 
 ];
 
-$settings['gmail'] = [
-    'host' => 'smtp.gmail.com',
-    'username' => 'jcsj2010@gmail.com',
-    'password' => 'fi#0323@',
-    'port' => '587'
+// Logger settings
+$settings['logger'] = [
+    'name' => 'app',
+    'path' => __DIR__ . '/../logs',
+    'filename' => 'app.log',
+    'level' => \Monolog\Logger::DEBUG,
+    'file_permission' => 0775,
 ];
 
 return $settings;

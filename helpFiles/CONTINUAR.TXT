@@ -1,0 +1,1 @@
+https://medium.com/@fidelissauro/slim-framework-criando-microservices-06-middlewares-logging-e-http-errors-fallback-8b45bd6ce85c
