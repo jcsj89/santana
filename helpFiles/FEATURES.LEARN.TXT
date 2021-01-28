@@ -5,3 +5,34 @@ TWIG
 IMAGE
 SLIM 
 git
+
+
+exemplo de log de email swiftmail handler
+
+/////////////inicio
+
+require_once(DIR.'/vendor/autoload.php');
+
+use MonologLogger;
+use MonologHandlerStreamHandler;
+use MonologHandlerSwiftMailerHandler;
+
+// Create the Transport
+$transporter = new Swift_SmtpTransport('smtp.example.com', 465, 'ssl');
+$transporter->setUsername('user@example.com');
+$transporter->setPassword('123456');
+
+// Create the Mailer using your created Transport
+$mailer = new Swift_Mailer($transporter);
+
+// Create a message
+$message = (new Swift_Message('A CRITICAL log was added'));
+$message->setFrom(['example-FROM@example.com' => 'Someone FROM']);
+$message->setTo(['someone-TO@example.com' => 'SomeoneTO']);
+
+$logger = new Logger('default');
+$logger->pushHandler(new StreamHandler(DIR.'/test.log', Logger::INFO));
+$logger->pushHandler(new SwiftMailerHandler($mailer, $message, Logger::CRITICAL, false));
+$logger->addCritical('Hey, a critical log entry!');
+
+/////////////////////fim

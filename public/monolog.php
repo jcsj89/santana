@@ -5,7 +5,7 @@ use Monolog\Handler\StreamHandler;
 
 // create a log channel
 $log = new Logger('teste');
-$log->pushHandler(new StreamHandler('../logs/testes.log', Logger::WARNING));
+$log->pushHandler(new StreamHandler('../logs/testes.log', Logger::WARNING) );
 
 // add records to the log
 $log->warning('Foo');
