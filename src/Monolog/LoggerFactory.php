@@ -1,12 +1,15 @@
 <?php
 
-namespace App\Factory;
+namespace App\Monolog;
 
 use Monolog\Formatter\LineFormatter;
 use Monolog\Handler\RotatingFileHandler;
 use Monolog\Handler\StreamHandler;
+use Monolog\Handler\SwiftMailerHandler;
 use Monolog\Logger;
 use Psr\Log\LoggerInterface;
+use App\Domain\Mail\Service\SwiftMailerFacade;
+use App\Domain\Mail\Data\MailData;
 
 /** * Factory. */
 final class LoggerFactory
@@ -71,6 +74,19 @@ final class LoggerFactory
         $streamHandler->setFormatter(new LineFormatter(null, null, false, true));
 
         $this->handler[] = $streamHandler;
+
+        return $this;
+    }
+
+    public function addMailerHandler(): self
+    {
+        $mailData = new MailData();
+        $mailData->setSubject('Log de Erro Site');
+
+        $mailer = new SwiftMailerFacade( $mailData );    
+
+        $mailerHandler = new SwiftMailerHandler( $mailer->getMailer(), $mailer->getMessage(), Logger::ERROR, true);
+        $this->handler[] = $mailerHandler;
 
         return $this;
     }

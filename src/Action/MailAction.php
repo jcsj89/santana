@@ -60,7 +60,7 @@ final class MailAction
 				//Chama o serviço de envio de email (SendMail)
 				//seta os dados do email, cria log de envio e envia
 				$this->mailer->setData($this->dataMail);
-				$this->mailer->setLog('EMAIL ENVIADO FORM CONTATO SITE - OK');
+				$this->mailer->setLog('CONTATO SITE - EMAIL: ' . $parsedBody['email']);
 				$this->mailer->send();
 
 				$viewData['send'] = true;   

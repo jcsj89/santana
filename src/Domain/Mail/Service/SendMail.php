@@ -2,7 +2,7 @@
 namespace App\Domain\Mail\Service;
 
 use App\Domain\Mail\Service\SwiftMailerFacade;
-use App\Factory\LoggerFactory; 
+use App\Monolog\LoggerFactory; 
 use Psr\Log\LoggerInterface;
 use Exception; 
 
@@ -15,14 +15,13 @@ class SendMail
     private $log;
 
 	function __construct( LoggerFactory $logger )
-	{		
-		$this->logger = $logger->addFileHandler('sendmail.log')->createInstance('sendmail');
+	{	
+		$this->logger = $logger->addFileHandler('mail/sendmail.log')->addMailerHandler()->createInstance('sendmail');		
 				
 	}
 
 	public function setData($data)
 	{
-
 		$this->data = $data;
 	}
 
@@ -46,12 +45,13 @@ class SendMail
 		try {
 			$mailer = new SwiftMailerFacade( $this->getData() );
 			$mailer->send();
+			//Logger
 			$this->logger->info( $this->getLog() );
 		} catch (Exception $e) {
 			// Log error message
-            $this->logger->error($exception->getMessage());
+            $this->logger->error($e->getMessage());
             
-            throw $exception;
+            throw $e;
 		}
 		
 	}

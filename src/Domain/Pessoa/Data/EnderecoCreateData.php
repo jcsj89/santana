@@ -15,6 +15,7 @@ final class EnderecoCreateData
 	private $bairro;
 	private $cep;
 	private $id_pessoa;
+	
 	function __construct()
 	{
 		$this->endereco='';
