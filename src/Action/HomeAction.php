@@ -38,4 +38,10 @@ final class HomeAction
     return $this->view->render( $response,'sobre.twig' );  
   }  
 
+  // PAGINA PRODUTOS
+  public function produtos( ServerRequestInterface $request, ResponseInterface $response ): ResponseInterface
+  {    
+    return $this->view->render( $response,'produtos.twig' );  
+  }  
+
 }//class
