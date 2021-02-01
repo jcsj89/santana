@@ -1,14 +1,69 @@
 {% extends 'base/base.twig' %}
 {% block content %}
 
-<div class="row bg-image">
-	<div class="container">
-		<div class="row pt-2 pb-2">
-			<div class="col-12 col-sm-8 ">
-				<h1>Em breve ...</h1>
+	<div class="row bg-image">
+		<div class="container">
+			<div class="row">
+				<div class="col border">
+					<h5>PRODUTOS</h5>
+				</div>
+				<div class="col-12 col-sm-6 border">
+					<nav aria-label="breadcrumb">
+						<ol class="breadcrumb">
+							<li class="breadcrumb-item"><a href="/">Home</a></li>							
+							<li class="breadcrumb-item active" aria-current="page">Produtos</li>
+						</ol>
+					</nav>
+				</div>
+
+			</div>
+
+			<div class="row pt-2 pb-2">
+				<!-- COLUNA DOS MENUS - LADO ESQUERDO -->
+				<div class="col-12 col-sm-3 border">
+					<h1>1</h1>
+				</div>
+				<!-- COLUNA DOS PRODUTOS - LADO DIREITO -->
+				<div class="col-12 col-sm-9 border">
+					<!-- CADA LINHA CONTEM 3 COLUNAS COM CADA COLUNA 1 PRODUTO -->
+					<div class="row">
+						<div class="col col-sm-4">
+							<H2>prod 1</H2>
+						</div>
+						<div class="col col-sm-4">
+							<H2>prod 2</H2>
+						</div>
+						<div class="col col-sm-4">
+							<H2>prod 3</H2>
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="col col-sm-4">
+							<H2>prod 1</H2>
+						</div>
+						<div class="col col-sm-4">
+							<H2>prod 2</H2>
+						</div>
+						<div class="col col-sm-4">
+							<H2>prod 3</H2>
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="col col-sm-4">
+							<H2>prod 1</H2>
+						</div>
+						<div class="col col-sm-4">
+							<H2>prod 2</H2>
+						</div>
+						<div class="col col-sm-4">
+							<H2>prod 3</H2>
+						</div>
+					</div>
+				</div>				
 			</div>
 		</div>
 	</div>
-</div>
 
-{%endblock%}
+	{%endblock%}
