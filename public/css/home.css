@@ -14,12 +14,14 @@ hr {
 	padding: 0;
 	border-color: #666;
 } 
+
 a {
-	font-family: 'Roboto Mono', monospace;
+	font-family: 'Roboto', sans-serif;
 	font-size: 0.9em;
 	line-height: 1.7;
-	color: #666666;
+	color: #000;
 	margin: 0px;
+	text-decoration: none;
 	transition: all 0.4s;
 	-webkit-transition: all 0.4s;
  	-o-transition: all 0.4s;
@@ -32,12 +34,17 @@ a:focus {
 
 a:hover {
 	text-decoration: none;
-  	color: #57b846;
+  	color: #222;
 }
 
 ul, li {
 	margin: 0px;
+	padding: 0px;
 	list-style-type: none;
+}
+
+.list-circle{	
+	list-style-type: circle;
 }
 
 
@@ -147,4 +154,21 @@ ul, li {
 
 .border-green{
 	border: 1px solid #ccc;
+}
+
+#nav-menu {
+	font-family: 'Roboto Mono', monospace;
+	font-size: 0.9em;
+	line-height: 1.7;
+	color: #666666;
+	margin: 0px;
+	transition: all 0.4s;
+	-webkit-transition: all 0.4s;
+ 	-o-transition: all 0.4s;
+  	-moz-transition: all 0.4s;
+}
+
+#nav-menu:hover {
+	text-decoration: none;
+  	color: #57b846;
 }
