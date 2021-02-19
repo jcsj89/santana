@@ -34,7 +34,8 @@ a:focus {
 
 a:hover {
 	text-decoration: none;
-  	color: #49b675;
+	color: #34a853; /*verde google*/
+  	/* coloor: #40b186; verde hostgator */
 }
 
 ul, li {
@@ -138,10 +139,11 @@ ul, li {
 	color: #db4437;
 }
 .color-blue{
-	color: #4285f4;
+	color: #4285f4;	
 }
 .color-blue:hover{
-	color: #bd7a0b;
+	coolor: #bd7a0b;
+	color: #fabd05;
 }
 .color-yellow{
 	color: #f4b400;
@@ -173,7 +175,9 @@ ul, li {
 
 /* FORMATACAO PG PRODUTOS */
 
-/* TAMANHO DA FONTE EM CELULAR PEQUENO ESTAVA ESTOURANDO A DIV DOS PRODUTOS */
+/* TAMANHO DA FONTE EM CELULAR PEQUENO ESTAVA ESTOURANDO A DIV DOS PRODUTOS 
+	USA UM TAMANHO DE MEDIA ESPECIFICO E REDUZ O TAMANHO DA FONTE
+*/
 @media (max-width: 480px) {
     h6{
         font-size: 0.8rem;
