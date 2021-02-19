@@ -1,10 +1,17 @@
 google colors
-red #db4437
-blue #4285f4
-green #0f9d58
-yellow #f4b400
-
-
+red #db4437 - rgb (233, 66, 53)
+blue #4285f4 - rgb (66, 133, 244)
+green #0f9d58 - rgb (52, 168, 83)
+yellow #f4b400 - rgb (250, 187, 5)
+------------------------------------------
+fundo git-scm - rgb (240, 240, 232)
+logo git-scm red - rgb (246, 77, 39)
+------------------------------------------
+hostgator colors
+green - rgb (64, 177, 134)
+blue - rgb (46, 87, 139) - (23, 110, 183)
+orange - rgb (246, 139, 81)
+------------------------------------------
 #f8f9fa cinza anydesk
 --blue: #2280EE;
     --indigo: #6610f2;
