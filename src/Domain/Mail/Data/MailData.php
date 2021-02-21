@@ -16,7 +16,7 @@ class MailData
     {        
         $this->subject = 'Site Santana Quimica';
         $this->to = ['santanaquimica@terra.com.br', 'jcsj2010@gmail.com'];
-        $this->from = 'jcsj2010@gmail.com';
+        $this->from = 'contato@santanaquimica.com.br';
         $this->body = null;
     }
 

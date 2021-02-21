@@ -20,9 +20,9 @@ class SwiftMailerFacade
   {        
    $this->mailData = $mailData;
 
-   $this->transport = (new Swift_SmtpTransport('smtp.gmail.com', 465, 'ssl'))
-   ->setUsername('jcsj2010@gmail.com')
-   ->setPassword('fi#0323@');
+   $this->transport = (new Swift_SmtpTransport('br770.hostgator.com.br', 465, 'ssl'))
+   ->setUsername('contato@santanaquimica.com.br')
+   ->setPassword('santanaquimica#2021');
 
    $this->mailer = new Swift_Mailer($this->transport);
    $this->message = new Swift_Message();
