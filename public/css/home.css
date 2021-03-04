@@ -15,7 +15,6 @@ hr {
 	border-color: #666;
 }
 
-
 a {
 	font-family: 'Roboto', sans-serif;
 	font-size: 0.9em;
@@ -35,7 +34,8 @@ a:focus {
 
 a:hover {
 	text-decoration: none;
-  	color: #222;
+	color: #34a853; /*verde google*/
+  	/* coloor: #40b186; verde hostgator */
 }
 
 ul, li {
@@ -43,12 +43,6 @@ ul, li {
 	padding: 0px;
 	list-style-type: none;
 }
-
-.list-circle{	
-	list-style-type: circle;
-}
-
-
 
 .font-open-sans{	
 	font-family: 'Open Sans', sans-serif;
@@ -98,6 +92,7 @@ ul, li {
 	min-width: 200px;	
 	display: inline-block;
 }
+
 /* FORMATAÇÃO DO FORMULARIO CONTATO */
 .bg-goldenrod{
 	background-color: #daa520;	
@@ -144,7 +139,11 @@ ul, li {
 	color: #db4437;
 }
 .color-blue{
-	color: #4285f4;
+	color: #4285f4;	
+}
+.color-blue:hover{
+	coolor: #bd7a0b;
+	color: #fabd05;
 }
 .color-yellow{
 	color: #f4b400;
@@ -172,4 +171,24 @@ ul, li {
 #nav-menu:hover {
 	text-decoration: none;
   	color: #57b846;
+}
+
+/* FORMATACAO PG PRODUTOS */
+
+/* TAMANHO DA FONTE EM CELULAR PEQUENO ESTAVA ESTOURANDO A DIV DOS PRODUTOS 
+	USA UM TAMANHO DE MEDIA ESPECIFICO E REDUZ O TAMANHO DA FONTE
+*/
+@media (max-width: 480px) {
+    h6{
+        font-size: 0.8rem;
+    }
+}
+
+@media (max-width: 330px) {
+    h6{
+        font-size: 0.7rem;
+    }
+    a {
+    	font-size: 0.6rem;
+    }
 }
