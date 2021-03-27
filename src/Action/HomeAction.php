@@ -44,4 +44,10 @@ final class HomeAction
     return $this->view->render( $response,'produtos.twig' );  
   }  
 
+  // PAGINA SANQ MOL LS
+  public function sanqmolls( ServerRequestInterface $request, ResponseInterface $response ): ResponseInterface
+  {    
+    return $this->view->render( $response,'prod/sanq.mol.ls.twig' );  
+  }  
+
 }//class
