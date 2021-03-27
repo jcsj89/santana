@@ -16,6 +16,8 @@ return function (App $app) {
 		$group->get('/sobre',\App\Action\HomeAction::class.':sobre');
 		$group->get('/contato', \App\Action\HomeAction::class.':contato');
 		$group->post('/contato', \App\Action\MailAction::class.':contato');
+
+		$group->get('/produtos/sanq-mol-ls', \App\Action\HomeAction::class.':sanqmolls');
 	});
 	
 	$app->get('/login', \App\Action\Validation\LoginAction::class);	
