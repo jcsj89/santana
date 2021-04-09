@@ -1,0 +1,91 @@
+{% extends 'base/base.twig' %}
+{% block content %}
+
+<!-- ----------------------------------------------------------------------------------
+-	Esta pagina extende base.twig e tambem é um template para as
+-	paginas dos produtos.
+-	Aqui fica o menu lateral esquerdo, que é replicado pelos produtos
+-------------------------------------------------------------------------------------->
+
+<div class="row bg-image"> <!-- Row principal, que engloba o content do site e tem o bg image -->
+	<div class="container"> <!-- faz um container dentro da linha para padronizar o tamanho do site -->
+		<div class="row pt-2 pb-2"> <!-- Linha principal do container -->
+			<div class="col-4 col-sm-3 border-right"> <!-- Coluna esquerda (menu) -->
+				<div class="row "> 
+					<div class="col-12 pt-2 text-right text-sm-left">
+						<h6 class="font-weight-bold">Linha Automotiva</h6>
+					</div>
+					<div class="col pt-2 text-right text-sm-left">
+						<ul class="">	
+							<h6 class="pb-1 font-weight-bold">Neutro</h6>						
+							<li class=""><a class="color-blue menu-produtos" href="/site/produtos/sanq-mol-ls">Sanq Mol LS</a></li>
+							<li class=""><a class="color-blue" href="/site/produtos/sanq-mol">Sanq Mol</a></li>
+							<!-- SANCLEAR
+							<li class=""><a class="color-blue" href="#">Sanclear</a></li>		-->
+						</ul>
+					</div>
+				</div>
+
+				<div class="row pt-2 text-right text-sm-left">
+					<div class="col ">
+						<ul class="">	
+							<h6 class="pb-1 font-weight-bold">Desincrustante</h6>						
+							<li class=""><a class="color-blue" href="/site/produtos/ativado-220">Ativado 220</a></li>
+							<li class=""><a class="color-blue" href="/site/produtos/ativado-ls">Ativado LS</a></li>
+							<li class=""><a class="color-blue" href="/site/produtos/ativado-110">Ativado 110</a></li>						
+						</ul>
+					</div>					
+				</div>
+
+				<div class="row pt-2 text-right text-sm-left">
+					<div class="col  ">
+						<ul class=" ">	
+							<h6 class="font-weight-bold">Desengraxante</h6>						
+							<li class=""><a class="color-blue" href="/site/produtos/samix-220">Samix 220</a></li>
+							<li class=""><a class="color-blue" href="/site/produtos/samix-ls">Samix LS</a></li>				
+							<li class=""><a class="color-blue" href="/site/produtos/sanq-chassis">Sanq Chassis 110</a></li>
+							
+						</ul>
+					</div>					
+				</div>
+
+				<div class="row pt-2 text-right text-sm-left">
+					<div class="col  ">
+						<ul class=" ">	
+							<h6 class="font-weight-bold">Acabamentos</h6>
+							<!-- 					
+							<li class=""><a class="color-blue" href="/site/produtos/silicone-gel">Silicone Gel</a></li> -->
+							<li class=""><a class="color-blue" href="/site/produtos/pneu-brill">Pneu Brill</a></li>
+							<li class=""><a class="color-blue" href="/site/produtos/mult-max">Mult Max</a></li>							
+						</ul>
+					</div>					
+				</div>
+
+				<div class="row mt-2 text-right text-sm-left border-top">
+					<div class="col-12 pt-2">
+						<h6 class="font-weight-bold">Linha Industrial</h6>
+					</div>
+					<div class="col  ">
+						<ul class=" ">												
+							<li class=""><a class="color-blue" href="#">R2 - 686</a></li>
+							<li class=""><a class="color-blue" href="#">R2 - 164</a></li>
+							<li class=""><a class="color-blue" href="#">R2 - 184</a></li>
+							<li class=""><a class="color-blue" href="#">R2 - 878</a></li>
+							<li class=""><a class="color-blue" href="3">R2 - 492</a></li>
+							<li class=""><a class="color-blue" href="#">R2 - 544</a></li>
+							<li class=""><a class="color-blue" href="#">R2 - 772</a></li>
+						</ul>
+					</div>
+				</div>
+
+			</div>
+
+			<!-- COLUNA DOS PRODUTOS - LADO DIREITO -->
+			<div class="col-8 col-sm-9 ">
+				{% block prod %}{% endblock %}
+			</div>
+
+		</div>		
+	</div>
+</div>
+{% endblock %}
