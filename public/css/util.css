@@ -1,6 +1,15 @@
 /*[ FONT SIZE ]
 ///////////////////////////////////////////////////////////
 */
+.fs-1-em {font-size: 1em;}
+.fs-09-em {font-size: 0.9em;}
+.fs-08-em {font-size: 0.8em;}
+.fs-07-em {font-size: 0.7em;}
+.fs-11-em {font-size: 1.1em;}
+.fs-12-em {font-size: 1.2em;}
+.fs-13-em {font-size: 1.3em;}
+.fs-14-em {font-size: 1.4em;}
+
 .fs-1 {font-size: 1px;}
 .fs-2 {font-size: 2px;}
 .fs-3 {font-size: 3px;}
@@ -2229,9 +2238,10 @@
 /* ------------------------------------ */
 .text-white {color: white;}
 .text-black {color: black;}
+.text-orange {color: #E8CE20;}
 
 .text-hov-white:hover {color: white;}
-
+.text-hov-blue:hover{text-decoration: none;color: #fff;}
 /* ------------------------------------ */
 .text-up {text-transform: uppercase;}
 
@@ -2346,7 +2356,7 @@
 .bgwhite {background-color: white;}
 .bgblack {background-color: black;}
 .bgbeige {background-color: rgb(240,240,232);}
-
+.bgblue {background-color: #2395BF;}
 
 /*[ Wrap Picture ]
 -----------------------------------------------------------
