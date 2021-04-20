@@ -2239,6 +2239,9 @@
 .text-white {color: white;}
 .text-black {color: black;}
 .text-orange {color: #E8CE20;}
+.text-bege {color: #E4BFAF;}
+.text-yellow {color: #E2A822;}
+.text-mamao {color: #F34326;}
 
 .text-hov-white:hover {color: white;}
 .text-hov-blue:hover{text-decoration: none;color: #fff;}
