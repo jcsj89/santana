@@ -60,6 +60,10 @@ return function (App $app) {
 
 	/* ---------------------ROTAS PARA TESTES--------------------------*/
 
+	$app->get('/testes/json', \App\Action\Test\JsonAction::class.':teste');
+
+
+
 	$app->get('/sidebarteste', \App\Action\Test\SideBarAction::class.':teste');
 	$app->get('/sidebar', \App\Action\Test\SideBarAction::class);
 
