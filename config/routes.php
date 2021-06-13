@@ -55,12 +55,12 @@ return function (App $app) {
 	*/    
 	$app->get('/mail', \App\Action\Test\TestConectionAction::class);
 	
-
+	$app->get('/site/newsletter/', \App\Action\General\NewsLetterAction::class.':saveNewEmail');
 
 
 	/* ---------------------ROTAS PARA TESTES--------------------------*/
 
-	$app->get('/testes/json', \App\Action\Test\JsonAction::class.':teste');
+	
 
 
 

@@ -22,7 +22,7 @@
 			#	Email Form
 			#}
 			<div class="col-12 col-sm-6 mr-3 border-bottom text-center mt-4"> 
-				<form action="#">
+				<form action="/site/newsletter/" method="GET">
 					<div class="form-group row mx-auto">
 
 						 <div class="col-12 col-sm-8 align-bottom text-left mx-auto">
@@ -30,12 +30,17 @@
 						 </div>						
 
  						 <div class="col-12 col-sm-8 mx-auto">
- 						 	<input type="email"class="form-control form-control-sm" id="emailfooter" aria-describedby="emailfooter" placeholder="Seu email">
+ 						 	<input name="emailfooter" type="emailfooter"class="form-control form-control-sm" id="emailfooter" aria-describedby="emailfooter" placeholder="Seu email">
  						 </div>	
 
  						 <div class="col-12 col-sm-8 text-left mx-auto">
 						 		<button type="submit" class="btn btn-sm btn-outline-light mt-3">Cadastrar</button>
 						 		<p class="text-black">Cadastre seu email na nossa lista de novidades.</p>
+						 		{% if send == true %}
+		    					<div class="alert alert-success">
+		    						Email cadastrado com sucesso.<br>
+		    					</div>
+		    				{% endif %}
 						</div>					   						  		
  					</div>						  
 				</form>				
