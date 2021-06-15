@@ -55,10 +55,14 @@ return function (App $app) {
 	*/    
 	$app->get('/mail', \App\Action\Test\TestConectionAction::class);
 	
-
+	$app->get('/site/newsletter/', \App\Action\General\NewsLetterAction::class.':saveNewEmail');
 
 
 	/* ---------------------ROTAS PARA TESTES--------------------------*/
+
+	
+
+
 
 	$app->get('/sidebarteste', \App\Action\Test\SideBarAction::class.':teste');
 	$app->get('/sidebar', \App\Action\Test\SideBarAction::class);

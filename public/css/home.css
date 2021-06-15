@@ -38,7 +38,8 @@ a:focus {
 
 a:hover {
 	text-decoration: none;
-	color: #34a853; /*verde google*/
+	color: #4D99B5;
+	 /*color: #34a853;verde google*/
   	/* coloor: #40b186; verde hostgator */
 }
 
@@ -97,6 +98,11 @@ ul, li {
 	display: inline-block;
 }
 
+
+
+
+
+
 /* FORMATAÇÃO DO FORMULARIO CONTATO */
 .bg-goldenrod{
 	background-color: #daa520;	
@@ -123,15 +129,7 @@ ul, li {
 	background-color: #f8f9fa;
 }
 
-/* FORMATAÇÃO FOOTER */
-.copyright {
-	padding: 2px;
-	margin: 2px;
-	font-family: 'Open Sans', sans-serif;
-	font-style: normal; 	 
-	font-weight: 700;
-	font-size: 0.8em;
-}
+
 
 
 /*pagina sobre*/
@@ -201,3 +199,13 @@ ul.circle {
 	list-style-type: circle;
 }
 
+/* FORMATACAO FOOTER */
+
+.copyright {
+	padding: 2px;
+	margin: 2px;
+	font-family: 'Open Sans', sans-serif;
+	font-style: normal; 	 
+	font-weight: 700;
+	font-size: 0.8em;
+}
