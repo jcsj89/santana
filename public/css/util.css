@@ -2242,9 +2242,18 @@
 .text-bege {color: #E4BFAF;}
 .text-yellow {color: #E2A822;}
 .text-mamao {color: #F34326;}
+.text-red {color:  #FF1744}
+.text-gray {color:  #868e96}
+.text-blue {color:  #4D99B5}
 
-.text-hov-white:hover {color: white;}
-.text-hov-blue:hover{text-decoration: none;color: #fff;}
+.text-hov-white:hover  {text-decoration: none; color: white;}
+.text-hov-red:hover {color: #FF1744}
+
+.text-red:hover {text-decoration: none; color: #FF1744}
+.text-blue:hover {text-decoration: none; color:  #4D99B5}
+
+
+
 /* ------------------------------------ */
 .text-up {text-transform: uppercase;}
 
