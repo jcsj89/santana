@@ -1,1 +1,5 @@
 https://fontawesome.com/how-to-use/on-the-web/referencing-icons/basic-use
+
+https://primer.style/octicons/
+
+https://github.com/iconic/open-iconic
