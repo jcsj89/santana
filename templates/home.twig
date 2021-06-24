@@ -2,7 +2,9 @@
 {% block content %}
 	<div class="row bg-image">
 		<div class="container pt-2 pb-2 ">	
-			<div class="row justify-content-center"> {# LINE #}
+
+			{# LINE COVID#}
+			<div class="row justify-content-center mb-1"> 
 			<div class="col text-center border border-warning m-3 m-sm-0">
 				<h2>Juntos vamos derrotar o vírus.</h2>
 				<h3>Unidos pela informação e pela responsabilidade.</h3>
@@ -12,47 +14,133 @@
 					<span class="badge badge-warning">#fiqueseguro</span>
 				</h6>
 			</div>				
-			</div>{# END LINE #}
+			</div>
+			{# END LINE COVID#}
 
-			{# INSCRICAO DE EMAIL #}
-			<div class="row justify-content-center text-center border">{# LINE #}
-				<div class="col m-2 p-2 border">
+			{# NEWSLETTER #}
+			<div class="row justify-content-center text-center mb-1">{# LINE #}
+				<div class="col m-0 p-0">
 
-					<form class="" action="">
+					<form action="/site/newsletter/" method="GET">
 						
-						<div class="form-group row">
+						<div class="form-group row m-sm-0 m-3 p-3 bgyellow">
 
 							<div class="col-12 col-sm-4 text-sm-right">
-								<label for="emailnewsletter" class="col-form-label col-form-label-sm">Cadastro de Email - Newsletter</label>
+								<label for="emailbody" class="col-form-label col-form-label-sm text-black">Cadastro de Email - Newsletter</label>
 							</div>
     						
     						<div class="col-8 col-sm-4">
-      							<input type="email" class="form-control form-control-sm" id="emailnewsletter" placeholder="melhoremail@gmail.com">
+      							<input type="email" class="form-control form-control-sm" id="emailbody" name="emailbody" placeholder="melhoremail@gmail.com">
     						</div>
     						<div class="col-4 col-sm-4 text-sm-left">
-  								<button type="submit" class="btn btn-primary btn-sm ">Cadastrar</button>
+  								<button type="submit" class="btn btn-outline-dark btn-sm ">Cadastrar</button>
   							</div>
 
-  						</div>						
+  						</div>
+  						{% if emailBody == true %}
+		    				<div class="alert alert-success">
+		    					Obrigado por se cadastrar.<br>
+		    				</div>
+		    			{% endif %}
 					</form>
 				</div>	
 							
-			</div>{# END LINE #}
+			</div>
+			{# END LINE NEWSLETTER#}			
 
-			<div class="row m-5">pela pesquisa informal de mercado temos os melhores produtos de lavagem automotiva leve e pesada</div>
 			{# BANNERS #}
-
-			<div class="row justify-content-center text-center border">{# LINE #}
+			<div class="row justify-content-center text-center border mb-1">{# LINE #}
 				<div class="col m-2 border">BANNERS</div>				
-			</div>{# END LINE #}
+			</div>{# END LINE BANNERS#}
 
-			{#  #}
-			<div class="row justify-content-center text-center border mt-5">{# LINE #}
-				<div class="col m-2 border">REVENDEDOR CRIAR PAGINA OU UM FORMULARIO AQUI MESMO DE CADASTRO RAPIDO PARA REVENDEDOR OU EMPRESA</div>
+			{# FORM TO REGISTER SELLERS AND RESEARCH#}
+
+			<div class="row justify-content-center text-center border mt-2">{# LINE #}
+
+				{# FORM TO REGISTER SELLERS #}
+				<div class="col-12 col-sm-7 text-left">
+
+					<form action="#" method="POST">
+
+						<div class="form-row">
+							<div class="col m-3 p-0 text-center">
+								<h3>Cadastro de Revendedor ou Representante</h3>
+							</div>
+						</div>
+
+						<div class="form-row text-left m-0 p-0">
+							<div class="form-group col-12 m-0 p-0">
+								<div class="form-check">
+  									<input class="form-check-input" type="radio" name="representante" id="revendedorRadio" value="revendedor" checked>
+  									<label class=""  class="form-check-label" for="revendedorRadio">Revendedor</label>
+								</div>
+								<div class="form-check">
+ 									 <input class="form-check-input" type="radio" name="representante" id="representanteRadio" value="representante">
+  									<label class=""  class="form-check-label" for="representanteRadio">Representante</label>
+								</div>
+							</div>
+						</div>
+
+						<div class="form-row text-left ">
+							<div class="form-group col-12 m-0 p-0">
+								<label class="m-0 p-0"  for="nome10">Nome</label>
+								<input id="nome10" class="form-control" name="nome10" type="text">
+							</div>							
+						</div>
+
+						<div class="form-row ">
+							<div class="form-group col m-0 p-0 mr-sm-3">
+								<label class="m-0 p-0"  for="email10">Email</label>
+								<input id="email10" class="form-control" name="email10" type="email">
+							</div>
+							<div class="form-group col-sm-4 m-0 p-0">
+								<label class="m-0 p-0"  for="">Telefone</label>
+								<input id="" class="form-control" name="" type="tel">
+							</div>
+						</div>
+
+						<div class="form-row">
+							<div class="form-group col-12 m-0 p-0">
+								<label class="m-0 p-0"  for="">Cidade</label>
+								<input id="" class="form-control" name="" type="text">
+							</div>							
+						</div>
+
+						<div class="form-row">
+							<div class="form-group col m-0 p-0 mr-sm-3">
+								<label class="m-0 p-0"  for="">Estado</label>
+								<input id="" class="form-control" name="" type="text">
+							</div>
+							<div class="form-group col-sm-4 m-0 p-0">
+								<label class="m-0 p-0" for="">CEP</label>
+								<input id="" class="form-control" name="" type="text">
+							</div>							
+						</div>
+
+						<div class="form-row">
+							<div class="form-group col-12 m-0 p-0">
+    							<label class="m-0 p-0"  for="exampleFormControlTextarea1">Menssagem</label>
+    							<textarea maxlength="1024" class="form-control resize-none" id="exampleFormControlTextarea1" rows="6"></textarea>
+  							</div>			
+						</div>
+
+						<div class="form-row">
+							<div class="form-check m-2">    							
+    							<input class="form-check-input" type="checkbox" value="">
+  								<label class="p-0" >Trabalha na área?</label>
+  							</div>			
+						</div>
+						<button type="submit" class="btn btn-primary">Enviar</button>
+					</form>
+
+				</div>
+
+
+				{# FORM TO REASEARCH #}
 				<div class="col m-2 border">JÁ É CLIENTE - CRIAR UMA PESQUISA PARA PESSOAS RESPONDEREM</div>
-				<div class="col m-2 border">3</div>
-				<div class="col m-2 border">4</div>
+				
 			</div>{# END LINE #}
+			{# END FORM REGISTER SELLERS #}
 
 			{# ROW FEATURED PRODUCTS #}
 			<div class="row justify-content-center text-center m-5 font-ubuntu">
@@ -67,26 +155,30 @@
 					<a href="/site/produtos/pneu-brill">
 						<img src="/img/prod/pneu.brill.png" class="img-fluid" alt="Santana Química">
 					</a>					
-					<h6 class="mt-4 mb-3">Pneus mais pretos e brilhando.</h6>			
+					<h6 class="mt-4 mb-3">Pneus mais pretos e brilhando.</h6>	
+					<h6 class="mt-4 mb-3">LINHA ACABAMENTO</h6>		
 					<a class="text-gray text-hov-red" href="#"><i class="fa fa-shopping-cart text-red" aria-hidden="true"></i> Comprar</a>
 							
 				</div>
 				<div class="col-12 col-sm m-2 p-2 border">
 					<h4 class="mt-2 mb-2">Sanq Mol LS</h4>					
 					<a href="/site/produtos/sanq-mol-ls"><img src="/img/prod/sh.5l.300.png" class="img-fluid" alt="Santana Química"></a>
-					<h6 class="mt-4 mb-3">Xampu neutro automotivo.</h6>			
+					<h6 class="mt-4 mb-3">Xampu neutro automotivo.</h6>	
+					<h6 class="mt-4 mb-3">LINHA CONCENTRADO</h6>			
 					<a class="text-gray text-hov-red" href="#"><i class="fa fa-shopping-cart text-red" aria-hidden="true"></i> Comprar</a>				
 				</div>
 				<div class="col-12 col-sm m-2 p-2 border">
 					<h4 class="mt-2 mb-2">Samix LS</h4>						
 					<a href="/site/produtos/samix-ls"><img src="/img/prod/samix.5l.300.png" class="img-fluid" alt="Santana Química"></a>
-					<h6 class="mt-4 mb-3">Desengraxante automotivo.</h6>			
+					<h6 class="mt-4 mb-3">Desengraxante automotivo.</h6>	
+					<h6 class="mt-4 mb-3">LINHA CONCENTRADO</h6>		
 					<a class="text-gray text-hov-red" href="#"><i class="fa fa-shopping-cart text-red" aria-hidden="true"></i> Comprar</a>					
 				</div>
 				<div class="col-12 col-sm m-2 p-2 border">
 					<h4 class="mt-2 mb-2">Ativado LS</h4>					
 					<a href="/site/produtos/ativado-ls"><img src="/img/prod/at.ls.300.png" class="img-fluid" alt="Santana Química"></a>
-					<h6 class="mt-4 mb-3">Desincrustante automotivo.</h6>			
+					<h6 class="mt-4 mb-3">Desincrustante automotivo.</h6>	
+					<h6 class="mt-4 mb-3">LINHA CONCENTRADO</h6>		
 					<a class="text-gray text-hov-red" href="#"><i class="fa fa-shopping-cart text-red" aria-hidden="true"></i> Comprar</a>					
 				</div>
 			</div>	

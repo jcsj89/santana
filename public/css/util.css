@@ -2245,6 +2245,8 @@
 .text-red {color:  #FF1744}
 .text-gray {color:  #868e96}
 .text-blue {color:  #4D99B5}
+.text-red2 {color:  #F44336}
+.text-gray2 {color: #9F9C99}
 
 .text-hov-white:hover  {text-decoration: none; color: white;}
 .text-hov-red:hover {color: #FF1744}
@@ -2369,6 +2371,8 @@
 .bgblack {background-color: black;}
 .bgbeige {background-color: rgb(240,240,232);}
 .bgblue {background-color: #2395BF;}
+.bgorange {background-color: #ffb300;}
+.bgyellow {background-color: #ECDB54;}
 
 /*[ Wrap Picture ]
 -----------------------------------------------------------
@@ -3000,4 +3004,8 @@
 	position: absolute;
 	right: 0px;
 	bottom: 0px;
+}
+
+.resize-none {
+  resize: none;
 }

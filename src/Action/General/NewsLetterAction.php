@@ -32,6 +32,7 @@ final class NewsLetterAction
 	{
 		
 		$email = $request->getQueryParams()['emailfooter'];
+		$emailBody = $request->getQueryParams()['emailbody'];
 		
 
 		
@@ -40,6 +41,13 @@ final class NewsLetterAction
 			$viewData['send'] = TRUE;
 		}else{
 			$viewData['send'] = FALSE;
+		}
+
+		if ( !empty($emailBody) && $this->newsletterSave->saveNewEmail( $emailBody ) ) {
+			$this->sendMail($emailBody);
+			$viewData['emailBody'] = TRUE;
+		}else{
+			$viewData['emailBody'] = FALSE;
 		}
     	
 		return $this->view->render(
