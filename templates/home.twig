@@ -119,8 +119,8 @@
 
 						<div class="form-row">
 							<div class="form-group col-12 m-0 p-0">
-    							<label class="m-0 p-0"  for="exampleFormControlTextarea1">Menssagem</label>
-    							<textarea maxlength="1024" class="form-control resize-none" id="exampleFormControlTextarea1" rows="6"></textarea>
+    							<label class="m-0 p-0"  for="exampleFormControlTextarea1">Mensagem</label>
+    							<textarea maxlength="2048" class="form-control resize-none" id="exampleFormControlTextarea1" rows="6"></textarea>
   							</div>			
 						</div>
 
@@ -130,15 +130,82 @@
   								<label class="p-0" >Trabalha na área?</label>
   							</div>			
 						</div>
-						<button type="submit" class="btn btn-primary">Enviar</button>
+						<button type="submit" class="btn btn-sm btn-info">Enviar</button>
 					</form>
 
 				</div>
 
 
 				{# FORM TO REASEARCH #}
-				<div class="col m-2 border">JÁ É CLIENTE - CRIAR UMA PESQUISA PARA PESSOAS RESPONDEREM</div>
-				
+				<div class="col-12 col-sm-5 border-left">
+
+					<div class="row align-items-center justify-content-center bgbeige">
+						<div class="col-4 col-sm-3 p-3">
+						<image src="/img/icons/magic-box.png"></image>						
+					</div>
+
+					<div class="col">
+						<h2 class="text-mamao2">Sugestão Digital</h2>
+					</div>
+					</div>
+					<div class="row mb-3 pt-3 border-bottom bgbeige2">
+						<div class="col">
+							<h6>Esta é nossa caixa de sugestão digital.</h6>							
+							<h6>Você poderia nos deixar algumas sugestões ?</h6>
+							<h6>Sua opinião importa.</h6>
+						</div>
+					</div>
+
+					<form action="/" method="POST">
+
+						<fieldset class="form-group">
+								<div class="row align-items-center">
+								    <legend class="col-form-label col-sm-6 pt-0"><h6>Voce é nosso cliente?</h6></legend			>
+								    <div class="col-sm-6">
+								        <div class="form-check">
+								          <input class="form-check-input" type="radio" name="radio1" id="radio1" value="option1">
+								          <label class="form-check-label" for="radio1">
+								            Sim
+								          </label>
+								        </div>
+								        <div class="form-check">
+								          <input class="form-check-input" type="radio" name="radio1" id="radio2" value="option2">
+							          	<label class="form-check-label" for="radio2">
+							            Não
+							          	</label>
+							      </div>        
+				      	</div>
+				    	</div>
+				  	</fieldset>
+
+					  <fieldset class="form-group">
+					    <div class="row align-items-center">
+					      <legend class="col-form-label col-sm-6 pt-0"><h6>Você recomendaria nossos produtos?</h6></legend>
+					      <div class="col-sm-6">
+					        <div class="form-check">
+					          <input class="form-check-input" type="radio" name="radio2" id="radio3" value="option1">
+					          <label class="form-check-label" for="radio3">
+					            Sim
+					          </label>
+					        </div>
+					        <div class="form-check">
+					          <input class="form-check-input" type="radio" name="radio2" id="radio4" value="option2">
+					          <label class="form-check-label" for="radio4">
+					            Não
+					          </label>
+					        </div>        
+					      </div>
+					    </div>
+					  </fieldset>
+  
+						<div class="form-group">
+					    <label for="textarea5"><h6>Escreva sua sugestão/opinião aqui?</h6></label>
+					    <textarea maxlength="2048" class="form-control resize-none" id="textarea5" rows="7"></textarea>
+					  </div>
+					  <button class="btn btn-sm btn-warning mt-4">Enviar minha sugestão</button>
+					</form>
+					
+				</div> {# END LEFT COL #}				
 			</div>{# END LINE #}
 			{# END FORM REGISTER SELLERS #}
 
