@@ -33,9 +33,9 @@ $settings['error'] = [
 // Database settings
 $settings['db'] = [
     'driver' => 'mysql',
-    'host' => '192.168.0.200:3306',
+    'host' => 'localhost:3306',
     'username' => 'jose',
-    'database' => 'santana',
+    'database' => 'santa355_site',
     'password' => '0323',
     'charset' => 'utf8mb4',
     'collation' => 'utf8mb4_unicode_ci',    

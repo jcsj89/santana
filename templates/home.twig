@@ -21,27 +21,34 @@
 			<div class="row justify-content-center text-center mb-1">{# LINE #}
 				<div class="col m-0 p-0">
 
-					<form action="/site/newsletter/" method="GET">
+					<form action="/site/newsletter" method="POST">
 						
 						<div class="form-group row m-sm-0 m-3 p-3 bgyellow">
 
 							<div class="col-12 col-sm-4 text-sm-right">
-								<label for="emailbody" class="col-form-label col-form-label-sm text-black">Cadastro de Email - Newsletter</label>
+								<label for="newsletter" class="col-form-label col-form-label-sm text-black">Cadastro de Email - Newsletter</label>
 							</div>
     						
     						<div class="col-8 col-sm-4">
-      							<input type="email" class="form-control form-control-sm" id="emailbody" name="emailbody" placeholder="melhoremail@gmail.com">
+      							<input type="email" class="form-control form-control-sm" id="newsletter" name="newsletter" placeholder="melhoremail@gmail.com">
     						</div>
     						<div class="col-4 col-sm-4 text-sm-left">
   								<button type="submit" class="btn btn-outline-dark btn-sm ">Cadastrar</button>
   							</div>
 
   						</div>
-  						{% if emailBody == true %}
+  						{% if newsletter == 'ok' %}
 		    				<div class="alert alert-success">
 		    					Obrigado por se cadastrar.<br>
 		    				</div>
 		    			{% endif %}
+
+		    			{% if newsletter == 'cadastrado' %}
+		    				<div class="alert alert-info">
+		    					Você já está cadastrado.<br>
+		    				</div>
+		    			{% endif %}
+
 					</form>
 				</div>	
 							

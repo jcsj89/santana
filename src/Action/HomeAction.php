@@ -5,14 +5,18 @@ use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 use Slim\Views\Twig;
 
+use App\Domain\Site\Service\NewsletterServices;
+
 final class HomeAction 
 {
 	
-	private $view;   
+	private $view;
+  private $newsletterService;   
 
-  public function __construct( Twig $twig )
+  public function __construct( Twig $twig, NewsletterServices $newsletterService )
   {
     $this->view = $twig;    
+    $this->newsletterService = $newsletterService;
   }
 
   public function __invoke( ServerRequestInterface $request, ResponseInterface $response ): ResponseInterface
@@ -42,7 +46,33 @@ final class HomeAction
   public function produtos( ServerRequestInterface $request, ResponseInterface $response ): ResponseInterface
   {    
     return $this->view->render( $response,'produtos.twig' );  
-  }  
+  } 
+
+  // PAGE REGISTRATION NEWSLETTER
+  public function newsletter( ServerRequestInterface $request, ResponseInterface $response ): ResponseInterface
+  {    
+    $parsedBody = $request->getParsedBody()['newsletter'];
+    $viewData = [];
+
+    if (!empty($parsedBody)) {
+      $news = new \App\Domain\Site\Data\NewsletterCreateData();
+      $news->setEmail($parsedBody);
+
+      $save = $this->newsletterService->save($news);
+      
+
+      if ($save === 'cadastrado') {
+        $viewData['newsletter'] = 'cadastrado';  
+      }elseif ($save === false) {
+        $viewData['newsletter'] = false;
+      }else{
+        $viewData['newsletter'] = 'ok';
+      }      
+
+    }
+     
+    return $this->view->render( $response,'home.twig',$viewData );  
+  }   
 
   // PAGINA SANQ MOL LS
   public function sanqmolls( ServerRequestInterface $request, ResponseInterface $response ): ResponseInterface

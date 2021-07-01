@@ -5,6 +5,7 @@ use App\Domain\User\Data\UserCreateData;
 use PDO;
 use UnexpectedValueException;
 use App\Password\Bcrypt;
+
 /**
  * Repository.
  */
@@ -57,8 +58,7 @@ class UserCreatorRepository
         $stmt = $this->connection->prepare($sql);
         $stmt->execute($row);
 
-        return (int) $this->connection->lastInsertId();      
-        
+        return (int) $this->connection->lastInsertId();            
         
     }
 

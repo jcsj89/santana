@@ -33,6 +33,9 @@ return function (App $app) {
 		$group->get('/produtos/pneu-brill', \App\Action\HomeAction::class.':pneubrill');
 		$group->get('/produtos/mult-max', \App\Action\HomeAction::class.':multmax');
 		$group->get('/produtos/silicone-gel', \App\Action\HomeAction::class.':siliconegel');
+
+		// routes for forms newsletter, research and seller registration
+		$group->post('/newsletter', \App\Action\HomeAction::class.':newsletter');
 	});
 	
 	$app->get('/login', \App\Action\Validation\LoginAction::class);	
@@ -59,8 +62,9 @@ return function (App $app) {
 
 
 	/* ---------------------ROTAS PARA TESTES--------------------------*/
+	//teste newsletter 29.06.21
+	$app->get('/testseller', \App\Action\Test\TestUser::class);
 
-	
 
 
 
@@ -69,7 +73,7 @@ return function (App $app) {
 
 	$app->get('/testedeconexao', \App\Action\Test\TestConectionAction::class);
 	$app->get('/teste', \App\Action\Test\TestSlim::class);
-	$app->get('/testeuser', \App\Action\Test\TestUser::class);
+	
 
 	$app->get('/testes/contador', \App\Action\Test\TestConectionAction::class);
 
