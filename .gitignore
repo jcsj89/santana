@@ -1,8 +1,10 @@
 error_log
 /public/error_log
 public/error_log
+public/.htaccess.swp
 *.log
 *_log
+
 
 
 # Created by https://www.toptal.com/developers/gitignore/api/composer,sublimetext

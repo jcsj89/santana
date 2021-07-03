@@ -1,7 +1,7 @@
 <?php
 
 // Error reporting for production
-error_reporting(1);
+error_reporting(0);
 ini_set('display_errors', '1');
 
 // Timezone
@@ -34,9 +34,9 @@ $settings['error'] = [
 $settings['db'] = [
     'driver' => 'mysql',
     'host' => 'localhost:3306',
-    'username' => 'jose',
+    'username' => 'santa355_jose',
     'database' => 'santa355_site',
-    'password' => '0323',
+    'password' => '030212',
     'charset' => 'utf8mb4',
     'collation' => 'utf8mb4_unicode_ci',    
     'flags' => [
