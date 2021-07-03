@@ -36,6 +36,8 @@ return function (App $app) {
 
 		// routes for forms newsletter, research and seller registration
 		$group->post('/newsletter', \App\Action\HomeAction::class.':newsletter');
+		$group->post('/revendedor', \App\Action\HomeAction::class.':dealer');
+		$group->post('/sugestao', \App\Action\HomeAction::class.':suggestion');
 	});
 	
 	$app->get('/login', \App\Action\Validation\LoginAction::class);	

@@ -11,7 +11,7 @@ final class SellerCreateData{
 	public $cidade;
 	public $cep;
 	public $estado;
-	public $mensagem;
+	public $msg;
 	public $trabArea;
 
 	function __construct(){
@@ -23,7 +23,7 @@ final class SellerCreateData{
 		$this->cidade = '';
 		$this->cep = '';
 		$this->estado = '';
-		$this->mensagem = '';
+		$this->msg = '';
 		$this->trabArea = 1; //1 for yes - 0 for no
 	}
 

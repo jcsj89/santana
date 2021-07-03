@@ -6,8 +6,11 @@ use Psr\Http\Message\ServerRequestInterface as ServerRequest;
 
 use Slim\Views\Twig;
 
-use App\Domain\Site\Data\SellerCreateData;
-use App\Domain\Site\Repository\SellerRepository;
+use App\Domain\Site\Data\ResearchCreateData;
+use App\Domain\Site\Service\SellerServices;
+use App\Domain\Site\Service\ResearchServices;
+use App\Domain\Site\Repository\ResearchRepository;
+
 use PDO;
 
 class TestUser
@@ -15,27 +18,26 @@ class TestUser
 	private $view; 
 	private $repo;
 
-
-	public function __construct( Twig $twig, SellerRepository $repo )
+	public function __construct( Twig $twig, ResearchServices $repo)
 	{
 		$this->view = $twig; 		
 		$this->repo = $repo;
-
 	}
 
 	public function __invoke(ServerRequest $request, Response $response): Response
-	{
-		
-		$seller = new SellerCreateData();
-		$seller->name = 'jose carlos';
-		$seller->tel='997257501';
-		$seller->msg='oi';
-		$seller->idcadRevendedor=1;
+	{	
 
-		$sellers = $this->repo->insert($seller);
-		$all = $this->repo->selectAllSeller();
-		$byid = $this->repo->selectById(1);
-		//continuar aqui
+		$seller = new ResearchCreateData();
+		$seller->nossocliente = 1;
+		$seller->recomendaproduto = 1;
+		$seller->sugestao = 'alguma coisa';		
+		//$seller->idsugestao=1;	
+		
+		//$sellers = $this->repo->save($seller);
+		$all = $this->repo->selectAll();
+		$byid = $this->repo->selectById(7);
+		$this->repo->delete(5);
+		
 		$payload = json_encode($all);
 
 		$response->getBody()->write($payload);
@@ -43,7 +45,6 @@ class TestUser
 		return $response
           ->withHeader('Content-Type', 'application/json')
           ->withStatus(201);
-
 	}	
 
 }

@@ -55,10 +55,17 @@
 			</div>
 			{# END LINE NEWSLETTER#}			
 
+
+			<!--
+
 			{# BANNERS #}
 			<div class="row justify-content-center text-center border mb-1">{# LINE #}
 				<div class="col m-2 border">BANNERS</div>				
 			</div>{# END LINE BANNERS#}
+
+			-->
+
+
 
 			{# FORM TO REGISTER SELLERS AND RESEARCH#}
 
@@ -67,7 +74,7 @@
 				{# FORM TO REGISTER SELLERS #}
 				<div class="col-12 col-sm-7 text-left">
 
-					<form action="#" method="POST">
+					<form action="/site/revendedor" method="POST">
 
 						<div class="form-row">
 							<div class="col m-3 p-0 text-center">
@@ -78,11 +85,11 @@
 						<div class="form-row text-left m-0 p-0">
 							<div class="form-group col-12 m-0 p-0">
 								<div class="form-check">
-  									<input class="form-check-input" type="radio" name="representante" id="revendedorRadio" value="revendedor" checked>
+  									<input class="form-check-input" type="radio" name="revendedor" id="revendedorRadio" value="1" checked>
   									<label class=""  class="form-check-label" for="revendedorRadio">Revendedor</label>
 								</div>
 								<div class="form-check">
- 									 <input class="form-check-input" type="radio" name="representante" id="representanteRadio" value="representante">
+ 									 <input class="form-check-input" type="radio" name="revendedor" id="representanteRadio" value="0">
   									<label class=""  class="form-check-label" for="representanteRadio">Representante</label>
 								</div>
 							</div>
@@ -90,56 +97,64 @@
 
 						<div class="form-row text-left ">
 							<div class="form-group col-12 m-0 p-0">
-								<label class="m-0 p-0"  for="nome10">Nome</label>
-								<input id="nome10" class="form-control" name="nome10" type="text">
+								<label class="m-0 p-0"  for="nome10">Nome*</label>
+								<input id="nome10" class="form-control" name="nome" type="text">
 							</div>							
 						</div>
 
 						<div class="form-row ">
 							<div class="form-group col m-0 p-0 mr-sm-3">
-								<label class="m-0 p-0"  for="email10">Email</label>
+								<label class="m-0 p-0"  for="email10">Email*</label>
 								<input id="email10" class="form-control" name="email10" type="email">
 							</div>
 							<div class="form-group col-sm-4 m-0 p-0">
-								<label class="m-0 p-0"  for="">Telefone</label>
-								<input id="" class="form-control" name="" type="tel">
+								<label class="m-0 p-0"  for="">Telefone*</label>
+								<input id="" class="form-control" name="tel10" type="tel">
 							</div>
 						</div>
 
 						<div class="form-row">
 							<div class="form-group col-12 m-0 p-0">
 								<label class="m-0 p-0"  for="">Cidade</label>
-								<input id="" class="form-control" name="" type="text">
+								<input id="" class="form-control" name="cidade10" type="text">
 							</div>							
 						</div>
 
 						<div class="form-row">
 							<div class="form-group col m-0 p-0 mr-sm-3">
 								<label class="m-0 p-0"  for="">Estado</label>
-								<input id="" class="form-control" name="" type="text">
+								<input id="" class="form-control" name="estado10" type="text">
 							</div>
 							<div class="form-group col-sm-4 m-0 p-0">
-								<label class="m-0 p-0" for="">CEP</label>
-								<input id="" class="form-control" name="" type="text">
+								<label class="m-0 p-0" for="cep10">CEP</label>
+								<input id="cep10" class="form-control" name="cep10" type="text">
 							</div>							
 						</div>
 
 						<div class="form-row">
 							<div class="form-group col-12 m-0 p-0">
     							<label class="m-0 p-0"  for="exampleFormControlTextarea1">Mensagem</label>
-    							<textarea maxlength="2048" class="form-control resize-none" id="exampleFormControlTextarea1" rows="6"></textarea>
+    							<textarea maxlength="2048" class="form-control resize-none" id="exampleFormControlTextarea1" name="msg10" rows="6"></textarea>
   							</div>			
 						</div>
 
 						<div class="form-row">
 							<div class="form-check m-2">    							
-    							<input class="form-check-input" type="checkbox" value="">
+    							<input class="form-check-input" type="checkbox" value="1" name="trab10">
   								<label class="p-0" >Trabalha na área?</label>
   							</div>			
 						</div>
-						<button type="submit" class="btn btn-sm btn-info">Enviar</button>
+						<button type="submit" class="btn btn-sm btn-info mb-2">Enviar</button>
 					</form>
-
+					{% if dealer == 1 %}
+		    			<div class="alert alert-success">
+		    				Cadastro realizado com sucesso.<br>
+		    			</div>		    		
+		    		{% elseif dealer == 2 %}
+		    			<div class="alert alert-info">
+		    				Preencha corretamente o formulário.<br>
+		    			</div>
+		    		{% endif %}
 				</div>
 
 
@@ -157,26 +172,26 @@
 					</div>
 					<div class="row mb-3 pt-3 border-bottom bgbeige2">
 						<div class="col">
-							<h6>Esta é nossa caixa de sugestão digital.</h6>							
+							<h6>Esta é nossa caixa de sugestão digital.</h6>	
 							<h6>Você poderia nos deixar algumas sugestões ?</h6>
 							<h6>Sua opinião importa.</h6>
 						</div>
 					</div>
 
-					<form action="/" method="POST">
+					<form action="/site/sugestao" method="POST">
 
 						<fieldset class="form-group">
 								<div class="row align-items-center">
 								    <legend class="col-form-label col-sm-6 pt-0"><h6>Voce é nosso cliente?</h6></legend			>
 								    <div class="col-sm-6">
 								        <div class="form-check">
-								          <input class="form-check-input" type="radio" name="radio1" id="radio1" value="option1">
+								          <input class="form-check-input" type="radio" name="nossocli" id="radio1" value="1">
 								          <label class="form-check-label" for="radio1">
 								            Sim
 								          </label>
 								        </div>
 								        <div class="form-check">
-								          <input class="form-check-input" type="radio" name="radio1" id="radio2" value="option2">
+								          <input class="form-check-input" type="radio" name="nossocli" id="radio2" value="0">
 							          	<label class="form-check-label" for="radio2">
 							            Não
 							          	</label>
@@ -190,13 +205,13 @@
 					      <legend class="col-form-label col-sm-6 pt-0"><h6>Você recomendaria nossos produtos?</h6></legend>
 					      <div class="col-sm-6">
 					        <div class="form-check">
-					          <input class="form-check-input" type="radio" name="radio2" id="radio3" value="option1">
+					          <input class="form-check-input" type="radio" name="recomenda" id="radio3" value="1">
 					          <label class="form-check-label" for="radio3">
 					            Sim
 					          </label>
 					        </div>
 					        <div class="form-check">
-					          <input class="form-check-input" type="radio" name="radio2" id="radio4" value="option2">
+					          <input class="form-check-input" type="radio" name="recomenda" id="radio4" value="0">
 					          <label class="form-check-label" for="radio4">
 					            Não
 					          </label>
@@ -207,11 +222,19 @@
   
 						<div class="form-group">
 					    <label for="textarea5"><h6>Escreva sua sugestão/opinião aqui?</h6></label>
-					    <textarea maxlength="2048" class="form-control resize-none" id="textarea5" rows="7"></textarea>
+					    <textarea maxlength="2048" class="form-control resize-none" name="sugestao" id="textarea5" rows="7"></textarea>
 					  </div>
-					  <button class="btn btn-sm btn-warning mt-4">Enviar minha sugestão</button>
+					  <button class="btn btn-sm btn-warning mt-4 mb-3">Enviar minha sugestão</button>
 					</form>
-					
+					{% if feed1 == 1 %}
+		    			<div class="alert alert-success">
+		    				Obrigado pelo feedback.<br>
+		    			</div>
+		    		{% elseif feed1 == 2 %}
+		    			<div class="alert alert-success">
+		    				Campo sugestao não preenchido.<br>
+		    			</div>
+		    		{% endif %}
 				</div> {# END LEFT COL #}				
 			</div>{# END LINE #}
 			{# END FORM REGISTER SELLERS #}

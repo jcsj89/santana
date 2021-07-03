@@ -1,10 +1,10 @@
 <?php
 namespace App\Domain\Site\Repository;
 
-use App\Domain\Site\Data\SellerCreateData;
+use App\Domain\Site\Data\ResearchCreateData;
 use PDO;
 
-final class SellerRepository{
+final class ResearchRepository{
 
 	/**
      * @var PDO The database connection
@@ -21,33 +21,28 @@ final class SellerRepository{
         $this->connection = $connection;        
     }
 
-    public function insert(SellerCreateData $seller){
-    	$sql = "INSERT INTO cadRevendedor (revendedor,name,email,tel,cidade,estado,cep,trabArea,msg) VALUES (:revendedor, :name, :email, :tel, :cidade, :estado, :cep, :trabArea, :msg)";
+    public function insert(ResearchCreateData $research){
+    	$sql = "INSERT INTO sugestao (nossocliente,recomendaproduto,sugestao) VALUES (:nossocliente,:recomendaproduto,:sugestao)";
 
-        $sqlUpdate = "UPDATE cadRevendedor SET revendedor=:revendedor, name=:name, email=:email, tel=:tel, cidade=:cidade, estado=:estado, cep=:cep, trabArea=:trabArea, msg=:msg WHERE idcadRevendedor=:id";
+        $sqlUpdate = "UPDATE sugestao SET nossocliente=:nossocliente, recomendaproduto=:recomendaproduto, sugestao=:sugestao WHERE idsugestao=:id";
 
         // verify if id exists and update it 
-        if ( $seller->idcadRevendedor !== null ) {
+        if ( $research->idsugestao !== null ) {
             try{
                 //for verify if exists id                
-                $seller1 = $this->selectById($seller->idcadRevendedor);            
+                $research1 = $this->selectById($research->idsugestao);            
 
-                if ( $seller1 !== false ) {
+                if ( $research1 !== false ) {
                     
                     $this->connection->beginTransaction();
 
                     $stmt = $this->connection->prepare( $sqlUpdate );
                     
-                    $stmt->bindParam(':id', $seller->idcadRevendedor);
-                    $stmt->bindParam(':revendedor', $seller->revendedor);
-                    $stmt->bindParam(':name', $seller->name);
-                    $stmt->bindParam(':email', $seller->email);
-                    $stmt->bindParam(':tel', $seller->tel);
-                    $stmt->bindParam(':cidade', $seller->cidade);
-                    $stmt->bindParam(':estado', $seller->estado);
-                    $stmt->bindParam(':cep', $seller->cep);
-                    $stmt->bindParam(':trabArea', $seller->trabArea);
-                    $stmt->bindParam(':msg', $seller->msg);
+                    $stmt->bindParam(':id', $research->idsugestao);
+                    $stmt->bindParam(':nossocliente', $research->nossocliente);
+                    $stmt->bindParam(':recomendaproduto', $research->recomendaproduto);
+                    $stmt->bindParam(':sugestao', $research->sugestao);
+                    
                     $stmt->execute();
                     
                     $this->connection->commit();
@@ -71,15 +66,9 @@ final class SellerRepository{
 
             $stmt = $this->connection->prepare( $sql );
 
-            $stmt->bindParam(':revendedor', $seller->revendedor);
-            $stmt->bindParam(':name', $seller->name);
-            $stmt->bindParam(':email', $seller->email);
-            $stmt->bindParam(':tel', $seller->tel);
-            $stmt->bindParam(':cidade', $seller->cidade);
-            $stmt->bindParam(':estado', $seller->estado);
-            $stmt->bindParam(':cep', $seller->cep);
-            $stmt->bindParam(':trabArea', $seller->trabArea);
-            $stmt->bindParam(':msg', $seller->msg);
+            $stmt->bindParam(':nossocliente', $research->nossocliente);
+            $stmt->bindParam(':recomendaproduto', $research->recomendaproduto);
+            $stmt->bindParam(':sugestao', $research->sugestao);            
             $stmt->execute();
 
             $newId = $this->connection->lastInsertId();
@@ -106,7 +95,7 @@ final class SellerRepository{
 //select a seller for id parameter
 public function selectById(int $id)
 {
-    $sql = "SELECT * FROM cadRevendedor WHERE idcadRevendedor = :id";
+    $sql = "SELECT * FROM sugestao WHERE idsugestao = :id";
 
     try{
         if( is_integer($id) && $id > 0 ){
@@ -115,7 +104,7 @@ public function selectById(int $id)
             $stmt->execute();
 
             if( $stmt->rowCount() === 1 ){                
-                return $seller = $stmt->fetch(PDO::FETCH_ASSOC);
+                return $research = $stmt->fetch(PDO::FETCH_ASSOC);
             }
         }
 
@@ -128,16 +117,16 @@ public function selectById(int $id)
 }
 
 //return all seller
-public function selectAllSeller()
+public function selectAll()
 {
-    $sql = "SELECT * FROM cadRevendedor";
+    $sql = "SELECT * FROM sugestao";
 
     try{            
         $stmt = $this->connection->prepare( $sql );            
         $stmt->execute();
             
         if ($stmt->rowCount() > 0) {
-            return $seller = $stmt->fetchAll(PDO::FETCH_ASSOC); 
+            return $research = $stmt->fetchAll(PDO::FETCH_ASSOC); 
         }
 
         return false;    
@@ -150,11 +139,11 @@ public function selectAllSeller()
 
 //delete seller for id
 public function delete(int $id){
-    $sql = "DELETE FROM cadRevendedor WHERE idcadRevendedor = :id";
+    $sql = "DELETE FROM sugestao WHERE idsugestao = :id";
 
-    $seller = $this->selectById($id);
+    $research = $this->selectById($id);
 
-    if ( $seller !== false ) {
+    if ( $research !== false ) {
 
         $stmt = $this->connection->prepare( $sql );
         $stmt->bindParam(':id', $id );

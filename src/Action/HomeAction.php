@@ -6,17 +6,23 @@ use Psr\Http\Message\ServerRequestInterface;
 use Slim\Views\Twig;
 
 use App\Domain\Site\Service\NewsletterServices;
+use App\Domain\Site\Service\SellerServices;
+use App\Domain\Site\Service\ResearchServices;
 
 final class HomeAction 
 {
 	
 	private $view;
-  private $newsletterService;   
+  private $newsletterService; 
+  private $sellerServices;  
+  private $researchServices;
 
-  public function __construct( Twig $twig, NewsletterServices $newsletterService )
+  public function __construct( Twig $twig, NewsletterServices $newsletterService, SellerServices $sellerServices, ResearchServices $researchServices )
   {
     $this->view = $twig;    
     $this->newsletterService = $newsletterService;
+    $this->sellerServices = $sellerServices;
+    $this->researchServices = $researchServices;
   }
 
   public function __invoke( ServerRequestInterface $request, ResponseInterface $response ): ResponseInterface
@@ -70,7 +76,75 @@ final class HomeAction
       }      
 
     }
-     
+
+    return $this->view->render( $response,'home.twig',$viewData );  
+  }   
+
+  // REGISTRATION DEALER
+  public function dealer( ServerRequestInterface $request, ResponseInterface $response ): ResponseInterface
+  {    
+    $parsedBody = $request->getParsedBody();
+    
+    $viewData = [];
+
+    if (!empty($parsedBody['nome'])) {
+      $dealer = new \App\Domain\Site\Data\SellerCreateData();
+      $dealer->revendedor = (int)$parsedBody['revendedor'];
+      $dealer->name = $parsedBody['nome'];
+      $dealer->email = $parsedBody['email10'];
+      $dealer->tel = $parsedBody['tel10'];
+      $dealer->cidade = $parsedBody['cidade10'];
+      $dealer->estado = $parsedBody['estado10'];
+      $dealer->cep = $parsedBody['cep10'];
+      $dealer->msg = $parsedBody['msg10'];
+      $dealer->trabArea = isset( $parsedBody['trab10'] ) ? 1 : 0;
+      
+      $save = $this->sellerServices->save($dealer);      
+
+      if ($save !== false) {
+        $viewData['dealer'] = 1;  
+      }
+
+      if($save === false)
+      {
+        $viewData['dealer'] = 2;
+      }
+
+      }        
+
+    return $this->view->render( $response,'home.twig',$viewData );  
+  }   
+
+  // REGISTRATION SUGGESTION
+  public function suggestion( ServerRequestInterface $request, ResponseInterface $response ): ResponseInterface
+  {    
+    $parsedBody = $request->getParsedBody();
+    
+    $viewData = [];
+    
+    if (empty($parsedBody['sugestao'] ) ) {
+      $viewData['feed1'] = 2;
+    }
+    
+    if (!empty($parsedBody) && !empty($parsedBody['sugestao'] )) {
+
+      $research = new \App\Domain\Site\Data\ResearchCreateData();
+      $research->nossocliente = (int)$parsedBody['nossocli'];
+      $research->recomendaproduto = (int)$parsedBody['recomenda'];
+      $research->sugestao = $parsedBody['sugestao'];      
+      
+      $save = $this->researchServices->save($research);      
+      
+      if ($save !== false) {
+        $viewData['feed1'] = 1;  
+      }
+
+      if ($save === false) {
+        $viewData['feed1'] = 2;
+      }                
+
+    }
+
     return $this->view->render( $response,'home.twig',$viewData );  
   }   
 
