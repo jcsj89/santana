@@ -3,11 +3,6 @@
 namespace App\Domain\User\Data;
 use DateTime;
 use App\Domain\Pessoa\Data\PessoaCreateData;
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 
 /**
  * Description of UserCreateData
@@ -34,7 +29,7 @@ final class UserCreateData
         $this->setUpdate_time( $this->getDateNow() );     
     }
     
-    
+        
     function getUsername() {
         return $this->username;
     }

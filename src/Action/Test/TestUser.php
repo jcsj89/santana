@@ -6,55 +6,45 @@ use Psr\Http\Message\ServerRequestInterface as ServerRequest;
 
 use Slim\Views\Twig;
 
-use App\Domain\Pessoa\Data\PessoaCreateData;
-use App\Domain\Pessoa\Data\EmailCreateData;
-use App\Domain\Pessoa\Data\EnderecoCreateData;
-use App\Domain\Pessoa\Data\TelefoneCreateData;
+use App\Domain\Site\Data\ResearchCreateData;
+use App\Domain\Site\Service\SellerServices;
+use App\Domain\Site\Service\ResearchServices;
+use App\Domain\Site\Repository\ResearchRepository;
 
-
-use App\Domain\User\Data\UserCreateData;
+use PDO;
 
 class TestUser
 {
 	private $view; 
+	private $repo;
 
-
-	public function __construct(Twig $twig)
+	public function __construct( Twig $twig, ResearchServices $repo)
 	{
-		$this->view = $twig;  
-
+		$this->view = $twig; 		
+		$this->repo = $repo;
 	}
 
 	public function __invoke(ServerRequest $request, Response $response): Response
-	{
-		$pessoa = new PessoaCreateData();
-		$pessoa->setNome('jose santana');
+	{	
 
-		$email = new EmailCreateData();
-		$email->setEmail('jcsj@gmail.com');		
+		$seller = new ResearchCreateData();
+		$seller->nossocliente = 1;
+		$seller->recomendaproduto = 1;
+		$seller->sugestao = 'alguma coisa';		
+		//$seller->idsugestao=1;	
+		
+		//$sellers = $this->repo->save($seller);
+		$all = $this->repo->selectAll();
+		$byid = $this->repo->selectById(7);
+		$this->repo->delete(5);
+		
+		$payload = json_encode($all);
 
-		$end = new EnderecoCreateData();
-		$tel = new TelefoneCreateData();
-
-		$pessoa->setEmails($email);
-		$pessoa->setEmails($email);
-
-		/*
-		$user = new UserCreateData();		
-		$user->getPessoa()->nome = 'jose';
-		$user->getPessoa()->email_id[0]->setEmail('jcsj');
-*/
-		$array = [
-			'pessoa' => print_r($pessoa),
-			'email' => print_r($email),
-			'endereco' => print_r($end),
-			'tel' => print_r($tel)
-
-			//'2'=> $user->getPessoa()->email_id[0],
-			//'3'=> $user->getPessoa()->email_id[0],
-			//'4'=> print_r($user->getPessoa()->email_id )
-		];
-		return $response->withJson($array)->withStatus(201);		
+		$response->getBody()->write($payload);
+		
+		return $response
+          ->withHeader('Content-Type', 'application/json')
+          ->withStatus(201);
 	}	
 
 }
