@@ -146,8 +146,10 @@ ul, li {
 	color: #4285f4;	
 }
 .color-blue:hover{
-	/*coolor: #bd7a0b;*/
-	color: #fabd05;
+	/*coolor: #bd7a0b;
+	#17448e
+	*/
+	color: #17448e;
 }
 .color-yellow{
 	color: #f4b400;
@@ -184,16 +186,16 @@ ul, li {
 */
 @media (max-width: 480px) {
     h6{
-        font-size: 0.8rem;
+        font-size: 0.8rem !important;
     }
 }
 
 @media (max-width: 330px) {
     h6{
-        font-size: 0.7rem;
+        font-size: 0.7rem !important;
     }
     a {
-    	font-size: 0.6rem;
+    	font-size: 0.6rem !important;
     }
 }
 
