@@ -10,7 +10,7 @@
 <div class="row bg-image"> <!-- Row principal, que engloba o content do site e tem o bg image -->
 
 	<div class="container"> <!-- faz um container dentro da linha para padronizar o tamanho do site -->
-	
+		
 		<div class="row pt-2 pb-2"> <!-- Linha principal do container -->
 			<div class="col-4 col-sm-3 border-right"> <!-- Coluna esquerda (menu) -->
 				<div class="row "> 
@@ -47,7 +47,7 @@
 				<div class="row pt-2 text-right text-sm-left">
 					<div class="col">
 						<ul class="">	
-							<h6 class="m-0 font-weight-bold">Linha Ultra Concentrada</h6>
+							<h6 class="m-0 font-weight-bold">Linha Super Concentrada</h6>
 							<h6 class="">Diluição 1:100</h6>						
 							<li class=""><a class="color-blue" href="/site/produtos/samix-220">Samix 220</a></li>
 							<li class=""><a class="color-blue" href="/site/produtos/ativado-220">Ativado 220</a></li>
@@ -90,9 +90,28 @@
 			<!-- COLUNA DOS PRODUTOS - LADO DIREITO -->
 			<div class="col-8 col-sm-9 ">
 				{% block prod %}{% endblock %}
+
+				<!-- BOX OBS ABAIXO DOS PRODUTOS SOBRE DILUIÇÃO -->
+				<div class="row border border-success my-5 p-2">
+					<div class="col-12 border-bottom">
+						<h2>Como diluo os produtos da linha automotiva?</h2>				
+					</div>
+					<div class="col-12 ">
+						<p class="m-0"><strong>Linha Comum:  (1 : 10)</strong> - A diluição da linha comum é feita com 1 parte do produto e até 10 partes de água.</p>				
+					</div>
+					<div class="col-12 ">
+						<p class="m-0"><strong>Linha Concentrada: (1 : 40)</strong> - A diluição da linha concentrada é feita com 1 parte do produto e até 40 partes de água. </p>	
+					</div>
+					<div class="col-12 ">
+						<p class="m-0"><strong>Linha Super Concentrada: (1 : 100)</strong> - A diluição da linha super concentrada é feita com 1 parte do produto e até 100 partes de água. </p>	
+					</div>
+				</div>
+
 			</div>
 
 		</div>		
+		
+
 	</div>
 </div>
 {% endblock %}
